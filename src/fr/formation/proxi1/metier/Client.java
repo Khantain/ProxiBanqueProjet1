@@ -12,5 +12,7 @@ public class Client {
 	public CompteCourant compteCourant;
 	public CompteEpargne compteEpargne;
 	public CarteBancaire carteBancaire;
+	
+	
 
 }
