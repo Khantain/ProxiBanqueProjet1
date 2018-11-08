@@ -1,13 +1,13 @@
 package fr.formation.proxi1.Applicative;
 
 import fr.formation.proxi1.Bank.ProxiBanqueSI;
+import fr.formation.proxi1.IHM.Interaction;
 import fr.formation.proxi1.metier.Client;
 
 public class Gestion {
 
 	public Client creerClient() {
-		Client client = null;
-
+		Client client = new Client();
 		return client;
 	}
 

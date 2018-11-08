@@ -11,9 +11,11 @@ public class Interaction {
 	}
 	
 	public String read() {
-		return sc.next();
-		
-	}
+		Scanner scanner = new Scanner(System.in);
+		String input = scanner.nextLine();	
+		scanner.close();	
+		return input;
+	}	
 	
 	public void choixMenu() {
 		
