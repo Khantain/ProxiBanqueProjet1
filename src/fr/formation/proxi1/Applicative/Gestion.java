@@ -37,12 +37,8 @@ public class Gestion {
 	}
 
 	public String lireInfosClient(Client client) {
-<<<<<<< HEAD
-		
+
 		return "";
-=======
-		return client.toString();
->>>>>>> dec64c4587e6a596be1320d455900b8c562f4479
 	}
 
 	public void suppressionClient(Client client) {
