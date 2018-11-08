@@ -15,9 +15,5 @@ public class Gestion {
 
 	}
 
-	public void test() {
-		// TODO Auto-generated method stub
-
-	}
 
 }
