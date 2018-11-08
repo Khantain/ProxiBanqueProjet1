@@ -24,9 +24,13 @@ hs_err_pid*
 
 # Configuration Eclipse
 <<<<<<< HEAD
+<<<<<<< HEAD
 .settings/
 =======
 .seetings/
 >>>>>>> 0ed011134850dab6f450f3e1bada196c4075ffc9
+=======
+.settings/
+>>>>>>> 4eea4982f9141c09b31a4b30721755721f23f664
 .project
 .classpath
