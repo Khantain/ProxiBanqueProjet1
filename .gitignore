@@ -34,3 +34,4 @@ hs_err_pid*
 >>>>>>> 4eea4982f9141c09b31a4b30721755721f23f664
 .project
 .classpath
+/bin/
