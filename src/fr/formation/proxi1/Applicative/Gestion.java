@@ -37,8 +37,8 @@ public class Gestion {
 	}
 
 	public String lireInfosClient(Client client) {
-		String phrase = "";
-		return phrase;
+		
+		return "";
 	}
 
 	public void suppressionClient(Client client) {
