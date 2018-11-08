@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Agence {
-	
+
 	public String id;
 	public Gerant gerant;
 	public List<Conseiller> conseillers;
@@ -17,11 +17,15 @@ public class Agence {
 		this.conseillers = new ArrayList<>();
 		Conseiller conseiller1 = new Conseiller("JeSuisConseillerTest1");
 		Conseiller conseiller2 = new Conseiller("JeSuisConseillerTest2");
-		System.out.println(conseiller1);
-		System.out.println(conseiller2);
 		this.conseillers.add(conseiller1);
 		this.conseillers.add(conseiller2);
 		this.dateOuverture = LocalDate.now();
+	}
+
+	@Override
+	public String toString() {
+		return ("Agence " + this.id + " geree par " + this.gerant + ". Nombre de conseiller(s) : "
+				+ this.conseillers.size());
 	}
 
 }

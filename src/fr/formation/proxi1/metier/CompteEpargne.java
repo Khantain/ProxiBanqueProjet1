@@ -16,4 +16,11 @@ public class CompteEpargne extends CompteBancaire {
 
 	public int taux = Constants.tauxCompteEpargne;
 
+	@Override
+	public String toString() {
+		return ("Compte epargne N° " + this.id + " et au solde de " + this.solde + " euros.");
+	}
+	
+	
+
 }

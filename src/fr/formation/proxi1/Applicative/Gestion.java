@@ -14,7 +14,7 @@ import fr.formation.proxi1.metier.Gerant;
 public class Gestion {
 
 	public Client creerClient() {
-		Client client = new Client();
+		Client client = null;
 		return client;
 	}
 
@@ -55,23 +55,15 @@ public class Gestion {
 	
 	// zone de test 
 	public void start() {
+		this.creerJeudeTest();
 		Interaction interaction = new Interaction();
 		interaction.mainMenu();
 //	scanner.close();
 	}
 
 	public void creerJeudeTest() {
-//		ProxiBanqueSI test = new ProxiBanqueSI();
-//		this.data.agence = new ArrayList<>();
-//		Agence agence = new Agence("01234", "12/10/1995");
-//		agence.gerant = new Gerant("dd");
-//		agence.conseillers = new ArrayList<>();
-//		Gerant gerant = new Gerant("conseiller1");
-//		agence.conseillers.add(new Client("p","n"));
-//		this.data.agence.add(agence);
-//		agence.gerant.add(gerant);
+
 		ProxiBanqueSI proxiTest = new ProxiBanqueSI("test");
-System.out.println(proxiTest);
 	}
 
 	

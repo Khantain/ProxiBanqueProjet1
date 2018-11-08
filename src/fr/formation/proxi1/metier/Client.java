@@ -15,11 +15,11 @@ public class Client {
 	public CompteCourant compteCourant;
 	public CompteEpargne compteEpargne;
 	public CarteBancaire carteBancaire;
-	
+
 	public Client() {
 		Interaction interaction = new Interaction();
 		System.out.println("");
-		interaction.display("----------Création d'un nouveau client----------");
+		interaction.display("----------Crï¿½ation d'un nouveau client----------");
 		interaction.display("Saisir nom client");
 		this.nom = interaction.read();
 		interaction.display("Saisir prenom client");
@@ -31,12 +31,12 @@ public class Client {
 		interaction.display("Saisir ville client");
 		this.ville = interaction.read();
 		interaction.display("Saisir telephone client");
-		this.telephone = interaction.read();		
+		this.telephone = interaction.read();
 		this.compteCourant = new CompteCourant();
 		this.compteEpargne = new CompteEpargne();
 		this.carteBancaire = new CarteBancaire();
 		System.out.println("");
-		interaction.display("Saisie validée ! Donnés du nouveau client :");
+		interaction.display("Saisie validï¿½e ! Donnï¿½s du nouveau client :");
 		System.out.println("\t" + "Nom : " + this.nom);
 		System.out.println("\t" + "Prenom : " + this.prenom);
 		System.out.println("\t" + "Adresse : " + this.adresse);
@@ -45,7 +45,7 @@ public class Client {
 		System.out.println("\t" + "telephone : " + this.telephone + "\n");
 		interaction.mainMenu();
 	}
-	
+
 	public Client(String nom, String prenom, String adresse, String codePostal, String ville, String telephone,
 			CompteCourant compteCourant, CompteEpargne compteEpargne, CarteBancaire carteBancaire) {
 		this.nom = nom;
@@ -61,6 +61,8 @@ public class Client {
 
 	@Override
 	public String toString() {
-		return ("Je suis un client" + this.nom);
+		return ("Client " + this.nom + " " + this.prenom + " au solde de "
+				+ (this.compteCourant.solde + this.compteEpargne.solde) + " euros. Carte Bancaire : "
+				+ this.carteBancaire);
 	}
 }

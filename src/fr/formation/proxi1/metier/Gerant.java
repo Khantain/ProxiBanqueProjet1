@@ -1,6 +1,5 @@
 package fr.formation.proxi1.metier;
 
-import java.util.List;
 
 public class Gerant {
 	
@@ -8,6 +7,11 @@ public class Gerant {
 
 	public Gerant(String id) {
 		this.id = id;
+	}
+
+	@Override
+	public String toString() {
+		return ("Gerant "+ this.id);
 	}
 
 

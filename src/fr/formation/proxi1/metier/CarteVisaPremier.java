@@ -6,4 +6,9 @@ public class CarteVisaPremier extends CarteBancaire {
 		super(id, status);
 	}
 
+	@Override
+	public String toString() {
+		return ("Carte Visa Premier " + this.id);
+	}
+
 }

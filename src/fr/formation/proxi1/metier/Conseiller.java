@@ -20,8 +20,6 @@ public class Conseiller {
 					new CompteCourant("456", 3000, LocalDate.now()), new CompteEpargne("78415", 32145, LocalDate.now()), new CarteVisa("7841","active"));
 			this.clients.add(client1);
 			this.clients.add(client2);
-			System.out.println(client1);
-			System.out.println(client2);
 			
 		
 		}
@@ -35,10 +33,13 @@ public class Conseiller {
 					new CompteCourant("123", 3000, LocalDate.now()), new CompteEpargne("4551", 32145, LocalDate.now()), new CarteVisa("12354867","active"));
 			this.clients.add(client3);
 			this.clients.add(client4);
-			System.out.println(client3);
-			System.out.println(client4);
 		
 		}
+	}
+
+	@Override
+	public String toString() {
+		return ("Conseiller " + this.id+ " en charge de " + this.clients.size() + " client(s).");
 	}
 
 }

@@ -3,7 +3,6 @@ package fr.formation.proxi1.IHM;
 import java.util.Scanner;
 
 import fr.formation.proxi1.Applicative.Gestion;
-import fr.formation.proxi1.metier.Client;
 
 public class Interaction {
 		
@@ -21,8 +20,8 @@ public class Interaction {
 	public void mainMenu() {
 		this.display("");
 		this.display("----------Menu principal----------");
-		this.display("\t" + "1 - Créer un client");
-		this.display("\t" + "2 - Gérer client");
+		this.display("\t" + "1 - Crï¿½er un client");
+		this.display("\t" + "2 - Gï¿½rer client");
 		this.display("\t" + "3 - Quitter le programme");		
 		String userInput = this.read();
 		if (userInput.equals("1")) {
@@ -36,7 +35,7 @@ public class Interaction {
 			System.exit(0);
 		}
 		else {
-			this.display("Saisie erronée, 1, 2 ou 3 attendu.");
+			this.display("Saisie erronï¿½e, 1, 2 ou 3 attendu.");
 			this.mainMenu();
 		}
 	}
@@ -74,7 +73,7 @@ public class Interaction {
 			System.exit(0);
 		}
 		else {
-			this.display("Saisie erronée, 1, 2, 3, 4, 5 ou 6 attendu.");
+			this.display("Saisie erronï¿½e, 1, 2, 3, 4, 5 ou 6 attendu.");
 			this.Menugererclient();
 		}
 	}	

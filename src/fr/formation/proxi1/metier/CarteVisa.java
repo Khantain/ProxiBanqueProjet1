@@ -6,4 +6,9 @@ public class CarteVisa extends CarteBancaire {
 		super(id, status);
 	}
 
+
+	@Override
+	public String toString() {
+		return ("Carte Visa Electron " + this.id);
+	}
 }

@@ -1,6 +1,5 @@
 package fr.formation.proxi1.metier;
 
-import java.time.LocalDate;
 
 public class CarteBancaire {
 	

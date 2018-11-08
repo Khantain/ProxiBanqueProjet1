@@ -15,13 +15,12 @@ public class ProxiBanqueSI {
 
 	}
 
-	public ProxiBanqueSI(String phrase) {
+	public ProxiBanqueSI(String s) {
 		
-		if (phrase.equals("test")) {
+		if (s.equals("test")) {
 			this.agences = new ArrayList<>();
 			Agence agenceTest = new Agence("test");
 			this.agences.add(agenceTest);
-			System.out.println(agenceTest);
 		}
 
 	}
