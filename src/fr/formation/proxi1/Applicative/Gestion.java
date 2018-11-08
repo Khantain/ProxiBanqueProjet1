@@ -5,6 +5,7 @@ import java.util.Map;
 
 import fr.formation.proxi1.Bank.ProxiBanqueSI;
 import fr.formation.proxi1.IHM.Interaction;
+import fr.formation.proxi1.metier.Agence;
 import fr.formation.proxi1.metier.Client;
 import fr.formation.proxi1.metier.Conseiller;
 
@@ -28,8 +29,8 @@ public class Gestion {
 		} else
 			interaction.display("-------- Liste de vos clients ----------");
 
-		for (Client client : conseiller.clients) {
-			gestion.lireInfosClient(client);
+		for (Client client2 : conseiller.clients) {
+			gestion.lireInfosClient(client2);
 		}
 
 	}
@@ -57,19 +58,25 @@ public class Gestion {
 	}
 
 	public void creerJeudeTest() {
-		ProxiBanqueSI test = new ProxiBanqueSI();
+		ProxiBanqueSI proxiTest = new ProxiBanqueSI("test");
+System.out.println(proxiTest);
 	}
 
+	
+	
+	
+	
+	
 	public Map<Integer, Client> creerDicoClients(Conseiller conseiller) {
-		
+
 		Map<Integer, Client> inventaire = new HashMap<>();
-		
+
 		Integer[] suite = new Integer[conseiller.clients.size()];
-		for (int i = 1; i <= conseiller.clients.size(); i++) {
-			suite[i] = i;
+		for (int i = 0; i <= conseiller.clients.size(); i++) {
+			suite[i] = i+1;
 		}
-		
-		for (int i = 0; i <conseiller.clients.size(); i++ ) {
+
+		for (int i = 0; i < conseiller.clients.size(); i++) {
 			inventaire.put(suite[i], conseiller.clients.get(i));
 		}
 		return inventaire;
