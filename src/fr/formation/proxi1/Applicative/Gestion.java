@@ -1,11 +1,8 @@
 package fr.formation.proxi1.Applicative;
 
-<<<<<<< HEAD
 import java.util.ArrayList;
-=======
 import java.util.HashMap;
 import java.util.Map;
->>>>>>> 5d2158eaf6fca612d4f46a3e75d132d10c1593db
 
 import fr.formation.proxi1.Bank.ProxiBanqueSI;
 import fr.formation.proxi1.IHM.Interaction;
@@ -64,7 +61,6 @@ public class Gestion {
 	}
 
 	public void creerJeudeTest() {
-<<<<<<< HEAD
 //		ProxiBanqueSI test = new ProxiBanqueSI();
 //		this.data.agence = new ArrayList<>();
 //		Agence agence = new Agence("01234", "12/10/1995");
@@ -74,7 +70,6 @@ public class Gestion {
 //		agence.conseillers.add(new Client("p","n"));
 //		this.data.agence.add(agence);
 //		agence.gerant.add(gerant);
-=======
 		ProxiBanqueSI proxiTest = new ProxiBanqueSI("test");
 System.out.println(proxiTest);
 	}
@@ -97,7 +92,6 @@ System.out.println(proxiTest);
 			inventaire.put(suite[i], conseiller.clients.get(i));
 		}
 		return inventaire;
->>>>>>> 5d2158eaf6fca612d4f46a3e75d132d10c1593db
 	}
 
 }

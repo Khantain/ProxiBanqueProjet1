@@ -8,4 +8,8 @@ public class CompteCourant extends CompteBancaire {
 		super(i, j, now);
 	}
 
+	public CompteCourant() {
+		super();
+	}
+
 }

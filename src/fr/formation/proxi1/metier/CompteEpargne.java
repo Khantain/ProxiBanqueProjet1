@@ -10,6 +10,10 @@ public class CompteEpargne extends CompteBancaire {
 		super(id, solde, dateOuverture);
 	}
 
+	public CompteEpargne() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int taux = Constants.tauxCompteEpargne;
 
 }

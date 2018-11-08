@@ -1,5 +1,7 @@
 package fr.formation.proxi1.metier;
 
+import java.time.LocalDate;
+
 public class CarteBancaire {
 	
 	public String id;
@@ -10,7 +12,10 @@ public class CarteBancaire {
 		this.id = id;
 		this.status = status;
 	}
-	
-	
 
+
+	public CarteBancaire() {
+		this.id = "";
+		this.status = "";
+	}
 }

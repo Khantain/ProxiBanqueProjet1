@@ -14,4 +14,10 @@ public class CompteBancaire {
 		this.solde = solde;
 		this.dateOuverture = dateOuverture;
 	}
+
+	public CompteBancaire() {
+		this.id = "";
+		this.solde = 0;
+		this.dateOuverture = LocalDate.now();
+	}
 }

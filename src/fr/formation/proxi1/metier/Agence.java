@@ -5,13 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Agence {
-<<<<<<< HEAD
 	
-	public String id;
-	public Gerant gerant;
-	public List<Conseiller> conseillers;
-=======
-
 	public String id;
 	public Gerant gerant;
 	public List<Conseiller> conseillers;
@@ -29,6 +23,5 @@ public class Agence {
 		this.conseillers.add(conseiller2);
 		this.dateOuverture = LocalDate.now();
 	}
->>>>>>> 5d2158eaf6fca612d4f46a3e75d132d10c1593db
 
 }

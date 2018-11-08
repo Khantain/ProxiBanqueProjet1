@@ -16,7 +16,6 @@ public class Client {
 	public CompteEpargne compteEpargne;
 	public CarteBancaire carteBancaire;
 	
-<<<<<<< HEAD
 	public Client() {
 		Interaction interaction = new Interaction();
 		System.out.println("");
@@ -46,7 +45,7 @@ public class Client {
 		System.out.println("\t" + "telephone : " + this.telephone + "\n");
 		interaction.mainMenu();
 	}
-=======
+	
 	public Client(String nom, String prenom, String adresse, String codePostal, String ville, String telephone,
 			CompteCourant compteCourant, CompteEpargne compteEpargne, CarteBancaire carteBancaire) {
 		this.nom = nom;
@@ -64,9 +63,4 @@ public class Client {
 	public String toString() {
 		return ("Je suis un client" + this.nom);
 	}
-
-	
-	
-	
->>>>>>> 5d2158eaf6fca612d4f46a3e75d132d10c1593db
 }
