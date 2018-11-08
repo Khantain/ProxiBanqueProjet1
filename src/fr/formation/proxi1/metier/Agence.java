@@ -4,8 +4,8 @@ import java.util.List;
 
 public class Agence {
 	
-	private String id;
-	private Gerant gerant;
-	private List<Conseiller> conseillers;
+	public String id;
+	public Gerant gerant;
+	public List<Conseiller> conseillers;
 
 }
