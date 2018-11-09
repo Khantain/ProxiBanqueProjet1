@@ -5,7 +5,6 @@ import fr.formation.proxi1.Data.Constantes;
 import fr.formation.proxi1.IHM.Interaction;
 import fr.formation.proxi1.metier.CarteBancaire;
 import fr.formation.proxi1.metier.Client;
-import fr.formation.proxi1.metier.CompteBancaire;
 import fr.formation.proxi1.metier.CompteCourant;
 import fr.formation.proxi1.metier.CompteEpargne;
 import fr.formation.proxi1.metier.Conseiller;
@@ -14,7 +13,7 @@ import fr.formation.proxi1.metier.CreditConso;
 import fr.formation.proxi1.metier.CreditImmo;
 
 public class Gestion {
-
+//attributs de la classe
 	private ProxiBanqueSI entreprise;
 	private boolean running;
 	Interaction interaction = new Interaction();
@@ -163,7 +162,7 @@ public class Gestion {
 	}
 
 	public void faireSimulation(Client client) {
-		
+
 		interaction.display("Souhaitez vous simuler un credit conso (taper c) ou un credit immobilier (taper i) ? ");
 		String rep = interaction.read().toLowerCase().substring(0, 1);
 		Credit credit = null;
@@ -172,12 +171,21 @@ public class Gestion {
 		} else if (rep.equals("e")) {
 			credit = new CreditImmo();
 		}
-		
+
 		double ratio = credit.montantDu / (client.compteCourant.solde + client.compteEpargne.solde);
-		
-		interaction.display("Montant a rembourser par le client : " + credit.montantDu + ". Solde total du client : " +  (client.compteCourant.solde + client.compteEpargne.solde));
+
+		interaction.display("Montant a rembourser par le client : " + credit.montantDu + ". Solde total du client : "
+				+ (client.compteCourant.solde + client.compteEpargne.solde));
 		if (ratio >= 1) {
-			interaction.display("Attention, le montant à rembourser par le client est egal ou superieur a son solde total.\n");
+			interaction.display(
+					"Attention, le montant à rembourser par le client est egal ou superieur a son solde total.\n");
+		}
+		
+		interaction.display("Souhaitez-vous accorder un credit a ce client (Oui/Non) ?");
+		String choix = interaction.read().toLowerCase().substring(0,1);
+		if (choix.equals("o")) {
+			client.avecCredit = true;
+			interaction.display("Le client est maintenant enregistre comme ayant un credit.");
 		}
 
 	}
@@ -260,11 +268,17 @@ public class Gestion {
 
 				case "6":
 					break;
+					
+				case "7":
+					interaction.display("Fin du programme. Au revoir.");
+					System.exit(0);
+					break;
 				}
 				break;
 
 			case "3":
 				this.running = false;
+				interaction.display("Fin du programme. Au revoir.");
 				break;
 			}
 		}

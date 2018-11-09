@@ -1,6 +1,5 @@
 package fr.formation.proxi1.metier;
 
-import fr.formation.proxi1.Applicative.Gestion;
 import fr.formation.proxi1.IHM.Interaction;
 
 public class Client {
@@ -16,6 +15,7 @@ public class Client {
 	public CompteEpargne compteEpargne;
 	public CarteBancaire carteBancaire;
 	public boolean archive;
+	public boolean avecCredit;
 
 	public Client() {
 		Interaction interaction = new Interaction();
@@ -71,6 +71,7 @@ public class Client {
 		}while (!userInput.equals("1") && !userInput.equals("2"));
 		
 		this.archive = false;
+		this.avecCredit = false;
 	}
 	
 	public Client(String nom, String prenom, String adresse, int codePostal, String ville, long telephone,
@@ -85,6 +86,7 @@ public class Client {
 		this.compteEpargne = compteEpargne;
 		this.carteBancaire = carteBancaire;
 		this.archive = false;
+		this.avecCredit = false;
 	}
 	
 
