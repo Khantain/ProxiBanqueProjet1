@@ -34,6 +34,16 @@ public class Client {
 		this.telephone = interaction.read();
 		this.compteCourant = new CompteCourant();
 		this.compteEpargne = new CompteEpargne();
+		interaction.display("Quelle carte bleu attribue au client ?");
+		interaction.display("\t" + "1 - Carte  visa Electron");
+		interaction.display("\t" + "2 - Carte visa premier");		
+		String userInput = interaction.read();
+		if (userInput.equals("1")) {
+			this.carteBancaire = new CarteVisa();
+		}
+		else if (userInput.equals("2")) {
+			this.carteBancaire = new CarteVisaPremier();
+		}
 		this.carteBancaire = new CarteBancaire();
 		System.out.println("");
 		interaction.display("Saisie validee ! Donnees du nouveau client :");
@@ -43,7 +53,7 @@ public class Client {
 		System.out.println("\t" + "Code Postal : " + this.codePostal);
 		System.out.println("\t" + "Ville : " + this.ville);
 		System.out.println("\t" + "Telephone : " + this.telephone + "\n");
-		System.out.println("\t" + "Nombre compte courant : " + this.telephone + "\n");
+		System.out.println("\t" + "Nombre compte courant : " + this.compteCourant + "\n");
 		System.out.println("\t" + "Nombre compte épargne : " + this.telephone + "\n");
 		System.out.println("\t" + "Nombre carte Visa electron : " + this.telephone + "\n");
 		System.out.println("\t" + "Nombre carte Visa premier : " + this.telephone + "\n");

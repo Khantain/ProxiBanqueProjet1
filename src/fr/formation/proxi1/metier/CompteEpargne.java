@@ -3,6 +3,7 @@ package fr.formation.proxi1.metier;
 import java.time.LocalDate;
 
 import fr.formation.proxi1.Data.Constants;
+import fr.formation.proxi1.IHM.Interaction;
 
 public class CompteEpargne extends CompteBancaire {
 	
@@ -11,7 +12,12 @@ public class CompteEpargne extends CompteBancaire {
 	}
 
 	public CompteEpargne() {
-		// TODO Auto-generated constructor stub
+		Interaction interaction = new Interaction();
+		interaction.display("Saisir id du compte epargne");
+		this.id = interaction.read();
+		interaction.display("Saisir solde initial du compte epargne");
+		this.solde = Double.parseDouble(interaction.read());
+		this.dateOuverture = LocalDate.now();
 	}
 
 	public int taux = Constants.tauxCompteEpargne;
