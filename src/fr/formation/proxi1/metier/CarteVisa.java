@@ -46,6 +46,6 @@ public class CarteVisa extends CarteBancaire {
 	
 	@Override
 	public String toString() {
-		return (super.toString() + ". Carte de type electron");
+		return (super.toString() + " Carte de type electron");
 	}
 }
