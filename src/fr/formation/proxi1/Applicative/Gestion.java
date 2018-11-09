@@ -1,15 +1,10 @@
 package fr.formation.proxi1.Applicative;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 import fr.formation.proxi1.Bank.ProxiBanqueSI;
 import fr.formation.proxi1.IHM.Interaction;
-import fr.formation.proxi1.metier.Agence;
 import fr.formation.proxi1.metier.Client;
 import fr.formation.proxi1.metier.Conseiller;
-import fr.formation.proxi1.metier.Gerant;
 
 public class Gestion {
 
@@ -20,7 +15,7 @@ public class Gestion {
 	public Client creerClient() {
 		Client client = new Client();
 		System.out.println("");
-<<<<<<< HEAD
+
 		interaction.display("Saisie validee ! Donnees du nouveau client :");
 		System.out.println("\t" + "Nom : " + client.nom);
 		System.out.println("\t" + "Prenom : " + client.prenom);
@@ -30,17 +25,6 @@ public class Gestion {
 		System.out.println("\t" + "Telephone : " + client.telephone);
 		System.out.println("\t" + "Compte courant : " + client.compteCourant);
 		System.out.println("\t" + "Compte epargne : " + client.compteEpargne);
-=======
-		interaction.display("Saisie validee ! Donnees du nouveau client :\n");
-		System.out.println("\t" + "Nom : " + client.nom + "\n");
-		System.out.println("\t" + "Prenom : " + client.prenom + "\n");
-		System.out.println("\t" + "Adresse : " + client.adresse + "\n");
-		System.out.println("\t" + "Code Postal : " + client.codePostal + "\n");
-		System.out.println("\t" + "Ville : " + client.ville + "\n");
-		System.out.println("\t" + "Telephone : " + client.telephone + "\n");
-		System.out.println("\t" + "Compte courant : " + client.compteCourant + "\n");
-		System.out.println("\t" + "Compte epargne : " + client.compteEpargne + "\n");
->>>>>>> 645f54fccf3176a53432472e2cbe1c10fd287667
 		System.out.println("\t" + "Carte Visa : " + client.carteBancaire + "\n");
 		return client;
 	}
@@ -51,21 +35,13 @@ public class Gestion {
 			interaction.display("Vous n'avez aucun client enregistre. Souhaitez-vous en ajouter un (oui/non) ?");
 			if (interaction.read().startsWith("o")) {
 				gestion.creerClient();
-<<<<<<< HEAD
 			} else return;
 		}
 		interaction.display("-------- Liste de vos clients ----------");
 		for (int i = 0; i < this.entreprise.agences.get(0).conseillers.get(2).clients.size(); i++) {
 			interaction.display(
 					"Client " + (i + 1) + " : " + this.entreprise.agences.get(0).conseillers.get(2).clients.get(i));
-=======
-			}
-		} else
-			interaction.display("-------- Liste de vos clients ----------");
-
-		for (Client client2 : conseiller.clients) {
-			gestion.lireInfosClient(client2);
->>>>>>> 645f54fccf3176a53432472e2cbe1c10fd287667
+		
 		}
 	}
 
@@ -93,10 +69,7 @@ public class Gestion {
 		Conseiller conseiller = new Conseiller();
 		this.entreprise.agences.get(0).conseillers.add(conseiller);
 		String choix = "";
-<<<<<<< HEAD
 
-=======
->>>>>>> 645f54fccf3176a53432472e2cbe1c10fd287667
 		while (this.running) {
 			choix = interaction.mainMenu();
 
