@@ -2,8 +2,11 @@ package fr.formation.proxi1.metier;
 
 import java.time.LocalDate;
 
+import com.sun.org.apache.bcel.internal.Constants;
+
 import fr.formation.proxi1.Applicative.Gestion;
 import fr.formation.proxi1.IHM.Interaction;
+import fr.formation.proxi1.Data.Constantes;
 
 /**
  * 
@@ -66,4 +69,11 @@ public class CompteCourant extends CompteBancaire {
 	public String toString() {
 		return ("Compte courant Numero " + this.id + " et au solde de " + this.solde + " euros.");
 	}
+
+	@Override
+	public boolean solvable() {
+		return this.solde > Constantes.limiteDecouvert;
+	}
+	
+	
 }

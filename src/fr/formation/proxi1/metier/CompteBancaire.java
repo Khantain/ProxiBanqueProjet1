@@ -44,4 +44,8 @@ public class CompteBancaire {
 		this.solde = 0;
 		this.dateOuverture = LocalDate.now();
 	}
+	
+	public boolean solvable() {
+		return true;
+	}
 }

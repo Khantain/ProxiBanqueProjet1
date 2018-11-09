@@ -38,7 +38,7 @@ public class ProxiBanqueSI {
 	
 	public ProxiBanqueSI() {
 		this.agences = new ArrayList<>();
-		Agence agenceTest = new Agence("AgenceTest");
+		Agence agenceTest = new Agence("32AB4");
 		this.agences.add(agenceTest);
 	}
 }
