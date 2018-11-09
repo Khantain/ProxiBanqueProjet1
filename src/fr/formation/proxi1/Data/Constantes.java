@@ -4,16 +4,16 @@ package fr.formation.proxi1.Data;
  * 
  * @author Adminl
  *
- *La classe "Constants" permet de stocker les valeurs par default de l'application ProxiBanqueSI de limite du decouvert (fixé à 1000) et du taux relié au compte epargne (fixé à trois).
+ *La classe "Constantes" permet de stocker les valeurs par default de l'application ProxiBanqueSI de limite du decouvert (fixï¿½ ï¿½ 1000) et du taux reliï¿½ au compte epargne (fixï¿½ ï¿½ trois).
  *Cela permet de modifier ces deux valeurs sans impacter le reste de l'application.
  *De plus la modification de ces valeurs est facile pour une personne exterieur au monde de la programation.
  *
  */
 
 
-public class Constants {
+public class Constantes {
 	
-	public static final int limiteDecouvert = 1000;
+	public static final int limiteDecouvert = -1000;
 	public static final int tauxCompteEpargne = 3;
 
 }

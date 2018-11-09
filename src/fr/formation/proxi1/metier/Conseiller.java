@@ -18,7 +18,7 @@ public class Conseiller {
 
 	public String id;
 	public List<Client> clientsSuivis;
-	public List<Client> clientsArchivés;
+	public List<Client> clientsArchives;
 
 	/**
 	 * 
@@ -39,6 +39,7 @@ public class Conseiller {
 				new CarteVisa("7841", "active"));
 		this.clientsSuivis.add(client1);
 		this.clientsSuivis.add(client2);
+		this.clientsArchives = new ArrayList<>();
 	}
 
 	/**
@@ -54,6 +55,7 @@ public class Conseiller {
 		interaction.display("Bonjour. veuillez saisir votre nom : ");
 		this.id = interaction.read();
 		this.clientsSuivis = new ArrayList<>();
+		this.clientsArchives = new ArrayList<>();
 		interaction.display("Bonjour " + this.id + ". Vous n'avez pour l'instant aucun client enregistre. \n");
 	}
 

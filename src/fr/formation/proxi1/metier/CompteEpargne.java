@@ -2,7 +2,7 @@ package fr.formation.proxi1.metier;
 
 import java.time.LocalDate;
 
-import fr.formation.proxi1.Data.Constants;
+import fr.formation.proxi1.Data.Constantes;
 import fr.formation.proxi1.IHM.Interaction;
 
 /**
@@ -69,6 +69,9 @@ public class CompteEpargne extends CompteBancaire {
 		return ("Compte epargne Numero " + this.id + " et au solde de " + this.solde + " euros.");
 	}
 	
-	
+	@Override
+	public boolean solvable() {
+		return this.solde > 0;
+	}
 
 }
