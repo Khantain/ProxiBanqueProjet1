@@ -14,17 +14,19 @@ import fr.formation.proxi1.metier.Gerant;
 public class Gestion {
 
 	public void creerClient(Conseiller conseiller) {
+		Interaction interaction = new Interaction();
 		Client client = new Client();
 		conseiller.clients.add(client);
+		interaction.mainMenu(conseiller);
 	}
 
 	public void modifierClient(Conseiller conseiller, Client client) {
 		Interaction interaction = new Interaction();
 		Gestion gestion = new Gestion();
 		if (conseiller.clients.size() == 0) {
-			interaction.display("Vous n'avez aucun client enregistré. Souhaitez-vous en ajouter un (oui/non) ?");
+			interaction.display("Vous n'avez aucun client enregistrï¿½. Souhaitez-vous en ajouter un (oui/non) ?");
 			if (interaction.read().startsWith("o")) {
-				gestion.creerClient();
+				gestion.creerClient(conseiller);
 			}
 
 		} else
@@ -56,8 +58,9 @@ public class Gestion {
 	// zone de test 
 	public void start() {
 		this.creerJeudeTest();
+		Conseiller conseiller = new Conseiller();
 		Interaction interaction = new Interaction();
-		interaction.mainMenu();
+		interaction.mainMenu(conseiller);
 //	scanner.close();
 	}
 

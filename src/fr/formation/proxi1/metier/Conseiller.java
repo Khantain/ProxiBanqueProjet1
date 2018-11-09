@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import fr.formation.proxi1.IHM.Interaction;
+
 public class Conseiller {
 
 	public String id;
@@ -35,6 +37,15 @@ public class Conseiller {
 			this.clients.add(client4);
 		
 		}
+	}
+	
+	public Conseiller(){
+		Interaction interaction = new Interaction();
+		interaction.display("Bonjour. veuillez saisir votre nom : ");
+		this.id = interaction.read();
+		this.clients = new ArrayList<>();
+		interaction.display("Bonjour " + this.id+ ". Vous n'avez pour l'instant aucun client enregistré. ");
+	
 	}
 
 	@Override
