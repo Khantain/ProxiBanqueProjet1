@@ -30,7 +30,7 @@ public class Client {
 		this.codePostal = -1;
 		while (this.codePostal <= -1) {
 		try {
-			if (this.codePostal < 0) {
+			if (this.codePostal < -1) {
 				interaction.display("Code postal positif obligatoire !");
 			}
 			this.codePostal = Integer.parseInt(interaction.read());
@@ -45,7 +45,7 @@ public class Client {
 		this.telephone = -1;
 		while (this.telephone <= -1) {
 		try {
-			if (this.telephone < 0) {
+			if (this.telephone < -1) {
 				interaction.display("Numero positif obligatoire !");
 			}
 			this.telephone = Long.parseLong(interaction.read());

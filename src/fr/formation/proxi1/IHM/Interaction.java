@@ -16,8 +16,7 @@ public class Interaction {
 		return input;
 	}	
 			
-	public String mainMenu() {
-		
+	public String mainMenu() {	
 		String reponse = "";
 		do {
 		this.display("----------ProxiBanqueSI----------\n");		
@@ -36,8 +35,8 @@ public class Interaction {
 		do {
 		this.display("");
 		this.display("----------Menu de gestion de client----------\n");
-		this.display("\t1 - Lister information client");
-		this.display("\t2 - Modifier information client");		
+		this.display("\t1 - Afficher les informations d'un client");
+		this.display("\t2 - Modifier les informations client");		
 		this.display("\t3 - Supprimer un client");
 		this.display("\t4 - Faire virement");
 		this.display("\t5 - Faire simulation");

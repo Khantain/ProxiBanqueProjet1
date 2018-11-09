@@ -19,7 +19,7 @@ public class CompteCourant extends CompteBancaire {
 			this.solde = -1;
 			while (this.solde <= -1) {
 			try {
-				if (this.solde < 0) {
+				if (this.solde < -1) {
 					interaction.display("Chiffre positif demande");
 				}
 				this.solde = Double.parseDouble(interaction.read());
