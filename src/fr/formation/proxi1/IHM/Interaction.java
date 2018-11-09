@@ -19,8 +19,8 @@ public class Interaction {
 	}	
 			
 	public void mainMenu(Conseiller conseiller) {
-		this.display("----------ProxiBanqueSI----------" + "\n");		
-		this.display("----------Menu principal----------");
+		this.display("----------ProxiBanqueSI----------\n");		
+		this.display("----------Menu principal----------\n");
 		this.display("\t" + "1 - Creer un client");
 		this.display("\t" + "2 - Gerer client");
 		this.display("\t" + "3 - Quitter le programme");		
@@ -36,21 +36,21 @@ public class Interaction {
 			System.exit(0);
 		}
 		else {
-			this.display("Saisie erronee, 1, 2 ou 3 attendu.");
+			this.display("Saisie erronee, 1, 2 ou 3 attendu. \n");
 			this.mainMenu(conseiller);
 		}
 	}
 	
 	public void Menugererclient(Conseiller conseiller) {
 		this.display("");
-		this.display("----------Menu de gestion de client----------");
-		this.display("\t" + "1 - Lister information client");
-		this.display("\t" + "2 - Modifier information client");		
-		this.display("\t" + "3 - Supprimer un client");
-		this.display("\t" + "4 - Faire virement");
-		this.display("\t" + "5 - Faire simulation");
-		this.display("\t" + "6 - Retour menu principal");
-		this.display("\t" + "7 - Quitter le programme");
+		this.display("----------Menu de gestion de client----------\n");
+		this.display("\t1 - Lister information client");
+		this.display("\t2 - Modifier information client");		
+		this.display("\t3 - Supprimer un client");
+		this.display("\t4 - Faire virement");
+		this.display("\t5 - Faire simulation");
+		this.display("\t6 - Retour menu principal");
+		this.display("\t7 - Quitter le programme");
 		String userInput = this.read();
 		if (userInput.equals("1")) {
 			Gestion gestion = new Gestion();
@@ -79,7 +79,7 @@ public class Interaction {
 			System.exit(0);
 		}
 		else {
-			this.display("Saisie erronee, 1, 2, 3, 4, 5 ou 6 attendu.");
+			this.display("Saisie erronee, 1, 2, 3, 4, 5 ou 6 attendu.\n");
 			this.Menugererclient(conseiller);
 		}
 	}	

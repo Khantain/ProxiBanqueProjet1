@@ -16,7 +16,14 @@ public class CompteEpargne extends CompteBancaire {
 		interaction.display("Saisir id du compte epargne");
 		this.id = interaction.read();
 		interaction.display("Saisir solde initial du compte epargne");
-		this.solde = Double.parseDouble(interaction.read());
+		this.solde = -1;
+		while (this.solde == -1) {
+		try {
+			this.solde = Double.parseDouble(interaction.read());
+		  } catch (NumberFormatException e) {
+		    System.out.println("Chiffre attendu !");
+		  }
+		}
 		this.dateOuverture = LocalDate.now();
 	}
 
