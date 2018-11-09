@@ -27,8 +27,7 @@ public class Interaction {
 	 */
 	public String read() {
 		Scanner scanner = new Scanner(System.in);
-		String input = scanner.nextLine();
-//		scanner.close();	
+		String input = scanner.nextLine();	
 		return input;
 	}
 

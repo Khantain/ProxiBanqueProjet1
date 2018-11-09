@@ -3,13 +3,25 @@ Projet dans le cadre de la formation GTM
 
 LANCEMENT :
 
+Verifier que java est installe, s'il ne l'est pas, le telecharger a l'adresse : "https://www.java.com/fr/download/".
+
+Dezipper le fichier contenant l'application, 
+
 Pour lancer l'application executer le fichier exec.bat dans le dossier contenant les fichiers de l'archive (apres l'avoir dezippee).
 
 CAS D'UTILISATION :
 
+Des le debut, une agence de numero (id : 32AB4), deux conseillers (JeSuisConseillerTest1 et JeSuisConseillerTest2), possèdent chacun deux client test :
+	
+	"nom" "prenom" "adresse" "code postal" "Ville" " Tel" "compteCourant | numero | solde" "compteEpargne | numero | solde" "CarteVisa | numero | status)"
+	"Carre", "Triangle", "12 rue des Abysses", 32000, "Bordeaux", 1457819349, CompteCourant("123", 3000 euros), CompteEpargne("4551", 32145 euros) CarteVisa("12354867", "active")
+	"Cercle", "Alexandre", "4 avenue de Paris", 13568, "Marseille", 1234578699,	CompteCourant("456", 3000 euros), CompteEpargne("78415", 32145 euros) CarteVisa("7841", "active")
+	
+Ces deux conseillers et clients ne sont pas visible par l'utilisateur. Un conseiller n'a pour l'instant pas acces aux clients d'un autre conseiller.
+
 L'application ProxiBanqueSI permet une gestion des clients.
 
-Lors du lancement de l'application, la premiere etape consiste a rentrer son nom.
+Lors du lancement de l'application, la premiere etape consiste a rentrer son nom (celui du nouveau conseiller).
 
 Ensuite le logiciel fait apparaitre le menu principal contenant 3 possiblités :
 
@@ -30,7 +42,7 @@ Cette option permet de rentrer manuellement les informations necessaires à la c
 	
 	2 - Gerer client
 
-Cette option ouvre le deuxième menu de l'application permettant de faire les actions suivantes :
+Cette option ouvre le deuxieme menu de l'application permettant de faire les actions suivantes :
 	
 		1 - Afficher les informations d'un client
 		
