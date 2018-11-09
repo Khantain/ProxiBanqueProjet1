@@ -31,7 +31,7 @@ public class Client {
 		while (this.codePostal <= 0) {
 		try {
 			if (this.codePostal < 0) {
-				interaction.display("Chiffre positif demandé");
+				interaction.display("Chiffre positif demandï¿½");
 			}
 			this.codePostal = Integer.parseInt(interaction.read());
 		  } catch (NumberFormatException e) {
@@ -46,7 +46,7 @@ public class Client {
 		while (this.telephone <= 0) {
 		try {
 			if (this.telephone < 0) {
-				interaction.display("Chiffre positif demandé");
+				interaction.display("Chiffre positif demandï¿½");
 			}
 			this.telephone = Long.parseLong(interaction.read());
 		  } catch (NumberFormatException e) {
@@ -65,17 +65,7 @@ public class Client {
 		else if (userInput.equals("2")) {
 			this.carteBancaire = new CarteVisaPremier();
 		}
-		System.out.println("");
-		interaction.display("Saisie validee ! Donnees du nouveau client :\n");
-		System.out.println("\t" + "Nom : " + this.nom + "\n");
-		System.out.println("\t" + "Prenom : " + this.prenom + "\n");
-		System.out.println("\t" + "Adresse : " + this.adresse + "\n");
-		System.out.println("\t" + "Code Postal : " + this.codePostal + "\n");
-		System.out.println("\t" + "Ville : " + this.ville + "\n");
-		System.out.println("\t" + "Telephone : " + this.telephone + "\n");
-		System.out.println("\t" + "Compte courant : " + this.compteCourant + "\n");
-		System.out.println("\t" + "Compte épargne : " + this.compteEpargne + "\n");
-		System.out.println("\t" + "Carte Visa : " + this.carteBancaire + "\n");
+		
 	}
 	
 	public Client(String nom, String prenom, String adresse, int codePostal, String ville, long telephone,
