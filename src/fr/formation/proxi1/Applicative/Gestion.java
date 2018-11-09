@@ -4,6 +4,7 @@ import fr.formation.proxi1.Bank.ProxiBanqueSI;
 import fr.formation.proxi1.IHM.Interaction;
 import fr.formation.proxi1.metier.CarteBancaire;
 import fr.formation.proxi1.metier.Client;
+import fr.formation.proxi1.metier.CompteBancaire;
 import fr.formation.proxi1.metier.CompteCourant;
 import fr.formation.proxi1.metier.CompteEpargne;
 import fr.formation.proxi1.metier.Conseiller;
@@ -14,15 +15,16 @@ public class Gestion {
 	private boolean running;
 	Interaction interaction = new Interaction();
 
+	
 	public Client creerClient() {
 		Client client = new Client();
 		System.out.println("");
-
 		interaction.display("Saisie validee ! Donnees du nouveau client :");
 		this.afficherClient(client);
 		return client;
 	}
 
+	
 	public void afficherClient(Client client) {
 		System.out.println("\t" + "Nom : " + client.nom);
 		System.out.println("\t" + "Prenom : " + client.prenom);
@@ -35,6 +37,7 @@ public class Gestion {
 		System.out.println("\t" + "Carte Visa : " + client.carteBancaire + "\n");
 	}
 
+	
 	public void modifierClient(Client client) {
 		String[] attributsClient = { "Nom", "Prenom", "Adresse", "Code postal", "Ville", "Telephone", "Compte Courant",
 				"Compte Epargne", "Carte Visa" };
@@ -95,6 +98,7 @@ public class Gestion {
 				"******* Liste de vos clients. Saisissez le chiffre correspondant au client d'interet **********");
 		int indexClient;
 		for (int i = 0; i < this.entreprise.agences.get(0).conseillers.get(2).clients.size(); i++) {
+			if (!this.entreprise.agences.get(0).conseillers.get(2).clients.get(i).archive)
 			interaction.display(
 					"\t" + (i + 1) + "    -    " + this.entreprise.agences.get(0).conseillers.get(2).clients.get(i));
 		}
@@ -103,11 +107,33 @@ public class Gestion {
 		return indexClient;
 	}
 
-	public void suppressionClient(Client client) {
+	public void suppressionClient() {
+		
+//		interaction.display("Il y a " + this.entreprise.agences.get(0).conseillers.get(2).clients.size()
+//				+ " client(s) dans votre liste.");
+//		int index3 = this.listerClients();
+//		this.entreprise.agences.get(0).conseillers.get(2).clients.get(index3).archive = true;
+//		interaction.display("Client supprime de la liste.\n");
 
 	}
 
-	public void faireVirement(Client clientCrediteur, Client clientDebiteur) {
+	public void faireVirement(Client clientCredite, Client clientDebite) {
+		interaction.display("Indiquez le montant du virement :");
+		double montant = Double.parseDouble(interaction.read());
+		
+		interaction.display("Pour le client a debiter, taper 'C' pour prendre depuis le compte courant et 'E' pour le compte epargne :");
+		String rep = interaction.read().toLowerCase().substring(0,1);
+		CompteBancaire compteDebite = null;
+		if (rep.equals("c")) {
+			compteDebite = clientDebite.compteCourant;
+		} else compteDebite = clientDebite.compteEpargne;
+		
+		interaction.display("Pour le client a crediter, taper 'C' pour prendre depuis le compte courant et 'E' pour le compte epargne :");
+		String rep2 = interaction.read().toLowerCase().substring(0,1);
+		CompteBancaire compteCredite = null;
+		if (rep.equals("c")) {
+			compteCredite = clientDebite.compteCourant;
+		} else compteCredite = clientDebite.compteEpargne;
 
 	}
 
@@ -128,44 +154,63 @@ public class Gestion {
 
 			switch (choix) {
 			case "1":
-				Client client = this.creerClient();
-				this.entreprise.agences.get(0).conseillers.get(2).clients.add(client);
+				Client clientCree = this.creerClient();
+				this.entreprise.agences.get(0).conseillers.get(2).clients.add(clientCree);
 				break;
 
 			case "2":
 				String choixSousMenu = interaction.Menugererclient();
 
 				switch (choixSousMenu) {
+				
+			//Affichage du resume d'un client.
 				case "1":
 					int index = this.listerClients();
 					Client clientSouhaite = this.entreprise.agences.get(0).conseillers.get(2).clients.get(index);
 					this.afficherClient(clientSouhaite);
 					break;
+					
+			//Modification d'un attribut du client selectionne.
 				case "2":
 					int index2 = this.listerClients();
 					Client clientAModifier = this.entreprise.agences.get(0).conseillers.get(2).clients.get(index2);
 					this.modifierClient(clientAModifier);
 					break;
+					
+			//Suppression d'un client. Retour au menu principal si absence de clients dans la liste.
 				case "3":
 					if (this.entreprise.agences.get(0).conseillers.get(2).clients.size() == 0) {
 						interaction.display("Erreur. Votre liste ne contient aucun client. Retour au menu principal.");
 						break;
 					}
+					this.suppressionClient();
+
 					
-					interaction.display("Il y a " + this.entreprise.agences.get(0).conseillers.get(2).clients.size() + " client(s) dans votre liste.");
-					int index3 = this.listerClients();
-					this.entreprise.agences.get(0).conseillers.get(2).clients.remove(index3);
-					interaction.display("Client supprime de la liste. Il reste " + this.entreprise.agences.get(0).conseillers.get(2).clients.size() + " client(s) dans votre liste.\n");
 					break;
+					
+			//Virement entre deux comptes. Le virement peut concerner le meme client.
 				case "4":
 					interaction.display("Indiquez le client a debiter : \n");
-					int indexClientDebiteur = this.listerClients();
-					interaction.display("Indiquez le client a crediter : \n");
-					int indexClientCrediteur = this.listerClients();
+					int indexClientDebite = this.listerClients();
+					Client clientDebite = this.entreprise.agences.get(0).conseillers.get(2).clients
+							.get(indexClientDebite);
 
+					String[] comptes = { "Compte Courant", "Compte Epargne" };
+					for (int i = 0; i < comptes.length; i++) {
+						interaction.display("\t" + (i + 1) + "    -    " + comptes[i]);
+					}
+
+					interaction.display("Indiquez le client a crediter : \n");
+					int indexClientCredite = this.listerClients();
+					Client clientCredite = this.entreprise.agences.get(0).conseillers.get(2).clients
+							.get(indexClientCredite);
+					
+					this.faireVirement(clientCredite, clientDebite);
 					break;
+					
 				case "5":
 					break;
+					
 				case "6":
 					break;
 				}

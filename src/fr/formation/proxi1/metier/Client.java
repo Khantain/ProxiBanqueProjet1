@@ -15,6 +15,7 @@ public class Client {
 	public CompteCourant compteCourant;
 	public CompteEpargne compteEpargne;
 	public CarteBancaire carteBancaire;
+	public boolean archive;
 
 	public Client() {
 		Interaction interaction = new Interaction();
@@ -68,6 +69,8 @@ public class Client {
 			this.carteBancaire = new CarteVisaPremier();
 		}
 		}while (!userInput.equals("1") && !userInput.equals("2"));
+		
+		this.archive = false;
 	}
 	
 	public Client(String nom, String prenom, String adresse, int codePostal, String ville, long telephone,
@@ -81,7 +84,9 @@ public class Client {
 		this.compteCourant = compteCourant;
 		this.compteEpargne = compteEpargne;
 		this.carteBancaire = carteBancaire;
+		this.archive = false;
 	}
+	
 
 	@Override
 	public String toString() {
