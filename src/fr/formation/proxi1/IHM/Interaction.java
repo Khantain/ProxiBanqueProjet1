@@ -42,6 +42,7 @@ public class Interaction {
 		this.display("\t5 - Faire simulation");
 		this.display("\t6 - Retour menu principal");
 		this.display("\t7 - Quitter le programme");
+		reponse = this.read();
 		} while (!reponse.equals("1") && !reponse.equals("2") && !reponse.equals("3") && !reponse.equals("4") && !reponse.equals("5") && !reponse.equals("6") && !reponse.equals("7"));
 		return reponse;
 	}
