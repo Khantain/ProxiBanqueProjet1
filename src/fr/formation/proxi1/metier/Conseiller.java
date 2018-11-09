@@ -13,7 +13,7 @@ public class Conseiller {
 
 	public Conseiller(String id) {
 		
-		if(id.equals("JeSuisConseillerTest1")) {
+		
 			this.id = id;
 			this.clients = new ArrayList<>();
 			Client client1 = new Client("Carre", "Triangle", "12 rue des Abysses",32000, "Bordeaux", 0145781934,
@@ -23,6 +23,7 @@ public class Conseiller {
 			this.clients.add(client1);
 			this.clients.add(client2);
 			
+<<<<<<< HEAD
 		
 		}
 		
@@ -37,6 +38,9 @@ public class Conseiller {
 			this.clients.add(client4);
 		
 		}
+=======
+	
+>>>>>>> 05c348a088c2478c7100e6815692d8ded85e4740
 	}
 	
 	public Conseiller(){

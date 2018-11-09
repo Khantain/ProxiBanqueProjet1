@@ -8,20 +8,17 @@ import fr.formation.proxi1.metier.Agence;
 public class ProxiBanqueSI {
 
 	public List<Agence> agences;
-	
 
 	public ProxiBanqueSI(List<Agence> agences) {
 		this.agences = agences;
 
 	}
 
-	public ProxiBanqueSI(String s) {
-		
-		if (s.equals("test")) {
-			this.agences = new ArrayList<>();
-			Agence agenceTest = new Agence("test");
-			this.agences.add(agenceTest);
-		}
+	public ProxiBanqueSI() {
+
+		this.agences = new ArrayList<>();
+		Agence agenceTest = new Agence("AgenceTest");
+		this.agences.add(agenceTest);
 
 	}
 }
