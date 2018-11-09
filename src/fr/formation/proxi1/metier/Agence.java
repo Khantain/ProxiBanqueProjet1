@@ -4,6 +4,15 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 
+ * @author Adminl
+ *
+ *Cette classe caracterise les attributs et methode de l'Agence.
+ *
+ */
+
+
 public class Agence {
 
 	public String id;
@@ -11,6 +20,14 @@ public class Agence {
 	public List<Conseiller> conseillers;
 	public LocalDate dateOuverture;
 
+	/**
+	 * 
+	 * @author Adminl
+	 *
+	 *Constructeur d'initialisation de la classe "Agence".
+	 *
+	 */
+	
 	public Agence(String id) {
 		this.id = id;
 		this.gerant = new Gerant("JeSuisUnGerantTest");
@@ -22,6 +39,14 @@ public class Agence {
 		this.dateOuverture = LocalDate.now();
 	}
 
+	/**
+	 * 
+	 * @author Adminl
+	 *
+	 *Constructeur par default de la classe "CompteBancaire".
+	 *
+	 */
+	
 	@Override
 	public String toString() {
 		return ("Agence " + this.id + " geree par " + this.gerant + ". Nombre de conseiller(s) : "

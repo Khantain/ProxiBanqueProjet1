@@ -5,12 +5,36 @@ import java.time.LocalDate;
 import fr.formation.proxi1.Applicative.Gestion;
 import fr.formation.proxi1.IHM.Interaction;
 
+/**
+ * 
+ * @author Adminl
+ *
+ *Cette classe caracterise les attributs et methode du Compte Courant.
+ *
+ */
+
 public class CompteCourant extends CompteBancaire {
 
+	/**
+	 * 
+	 * @author Adminl
+	 *
+	 *Constructeur d'initialisation de la classe "CompteCourant".
+	 *
+	 */
+	
 	public CompteCourant(String id, double solde, LocalDate dateOuverture) {
 		super(id, solde, dateOuverture);
 	}
 
+	/**
+	 * 
+	 * @author Adminl
+	 *
+	 *Constructeur par default de la classe "CompteCourant".
+	 *
+	 */
+	
 	public CompteCourant() {
 			Interaction interaction = new Interaction();
 			interaction.display("Saisir id du compte courant");
@@ -29,6 +53,14 @@ public class CompteCourant extends CompteBancaire {
 			}
 			this.dateOuverture = LocalDate.now();
 	}
+	
+	/**
+	 * 
+	 * @author Adminl
+	 *
+	 *Permet de redefinir la methode toString de la classe "Object".
+	 *
+	 */
 	
 	@Override
 	public String toString() {
