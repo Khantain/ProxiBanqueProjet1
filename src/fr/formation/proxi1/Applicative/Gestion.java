@@ -1,6 +1,5 @@
 package fr.formation.proxi1.Applicative;
 
-
 import fr.formation.proxi1.Bank.ProxiBanqueSI;
 import fr.formation.proxi1.IHM.Interaction;
 import fr.formation.proxi1.metier.Client;
@@ -29,29 +28,20 @@ public class Gestion {
 		return client;
 	}
 
-	public void modifierClient() {
-		Gestion gestion = new Gestion();
-		if (this.entreprise.agences.get(0).conseillers.get(2).clients.size() == 0) {
-			interaction.display("Vous n'avez aucun client enregistre. Souhaitez-vous en ajouter un (oui/non) ?");
-			if (interaction.read().startsWith("o")) {
-				gestion.creerClient();
-			} else return;
-		}
-		interaction.display("-------- Liste de vos clients ----------");
-		for (int i = 0; i < this.entreprise.agences.get(0).conseillers.get(2).clients.size(); i++) {
-			interaction.display(
-					"Client " + (i + 1) + " : " + this.entreprise.agences.get(0).conseillers.get(2).clients.get(i));
+	public void modifierClient(Client client) {
+		System.out.println("Je suis dans la methode modifier client !!!!!");
 		
-		}
 	}
 
-	public void lireInfosClient() {
+	public int listerClients() {
+		int indexClient;
 		for (int i = 0; i < this.entreprise.agences.get(0).conseillers.get(2).clients.size(); i++) {
 			interaction.display(
 					"Client " + (i + 1) + " : " + this.entreprise.agences.get(0).conseillers.get(2).clients.get(i));
-		
 		}
+		indexClient = Integer.parseInt(interaction.read()) - 1;
 
+		return indexClient;
 	}
 
 	public void suppressionClient(Client client) {
@@ -80,19 +70,41 @@ public class Gestion {
 			switch (choix) {
 			case "1":
 				Client client = this.creerClient();
-				entreprise.agences.get(0).conseillers.get(2).clients.add(client);
+				this.entreprise.agences.get(0).conseillers.get(2).clients.add(client);
 				break;
+
 			case "2":
 				String choixSousMenu = interaction.Menugererclient();
-				switch(choixSousMenu) {
+
+				switch (choixSousMenu) {
 				case "1":
+					int index = this.listerClients();
+					interaction
+							.display(this.entreprise.agences.get(0).conseillers.get(2).clients.get(index).toString());
+					break;
 				case "2":
+					int index2 = this.listerClients();
+					Client clientAModifier = this.entreprise.agences.get(0).conseillers.get(2).clients.get(index2);
+					this.modifierClient(clientAModifier);
+					break;
 				case "3":
+					int index3 = this.listerClients();
+					this.entreprise.agences.get(0).conseillers.get(2).clients.remove(index3);
+					break;
 				case "4":
+					interaction.display("Indiquez le client a debiter : ");
+					int indexClientDebiteur = this.listerClients();
+					interaction.display("Indiquez le client a crediter : ");
+					int indexClientCrediteur = this.listerClients();
+
+					break;
 				case "5":
+					break;
 				case "6":
+					break;
 				}
 				break;
+
 			case "3":
 				this.running = false;
 				break;
