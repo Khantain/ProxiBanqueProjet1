@@ -56,8 +56,9 @@ public class Gestion {
 	// zone de test 
 	public void start() {
 		this.creerJeudeTest();
+		Conseiller conseiller = new Conseiller();
 		Interaction interaction = new Interaction();
-		interaction.mainMenu();
+		interaction.mainMenu(conseiller);
 //	scanner.close();
 	}
 

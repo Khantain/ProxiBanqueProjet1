@@ -3,6 +3,7 @@ package fr.formation.proxi1.IHM;
 import java.util.Scanner;
 
 import fr.formation.proxi1.Applicative.Gestion;
+import fr.formation.proxi1.metier.Conseiller;
 
 public class Interaction {
 		
@@ -17,8 +18,7 @@ public class Interaction {
 		return input;
 	}	
 	
-	public void mainMenu() {
-		Conseiller conseiller = new Conseiller();
+	public void mainMenu(Conseiller conseiller) {
 		this.display("");
 		this.display("----------Menu principal----------");
 		this.display("\t" + "1 - Cr�er un client");
@@ -27,7 +27,7 @@ public class Interaction {
 		String userInput = this.read();
 		if (userInput.equals("1")) {
 			Gestion gestion = new Gestion();
-			gestion.creerClient();		
+			gestion.creerClient(conseiller);		
 		}
 		else if (userInput.equals("2")) {
 			this.Menugererclient();
@@ -37,7 +37,7 @@ public class Interaction {
 		}
 		else {
 			this.display("Saisie erron�e, 1, 2 ou 3 attendu.");
-			this.mainMenu();
+			this.mainMenu(conseiller);
 		}
 	}
 	
