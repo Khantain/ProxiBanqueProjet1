@@ -9,9 +9,9 @@ public class Client {
 	public String nom;
 	public String prenom;
 	public String adresse;
-	public String codePostal;
+	public int codePostal;
 	public String ville;
-	public String telephone;
+	public long telephone;
 	public CompteCourant compteCourant;
 	public CompteEpargne compteEpargne;
 	public CarteBancaire carteBancaire;
@@ -19,7 +19,7 @@ public class Client {
 	public Client() {
 		Interaction interaction = new Interaction();
 		System.out.println("");
-		interaction.display("----------Creation d'un nouveau client----------");
+		interaction.display("----------Creation d'un nouveau client----------\n");
 		interaction.display("Saisir nom client");
 		this.nom = interaction.read();
 		interaction.display("Saisir prenom client");
@@ -27,11 +27,32 @@ public class Client {
 		interaction.display("Saisir adresse client");
 		this.adresse = interaction.read();
 		interaction.display("Saisir code postal client");
-		this.codePostal = interaction.read();
+		this.codePostal = 0;
+		while (this.codePostal <= 0) {
+		try {
+			if (this.codePostal < 0) {
+				interaction.display("Chiffre positif demandé");
+			}
+			this.codePostal = Integer.parseInt(interaction.read());
+		  } catch (NumberFormatException e) {
+			  interaction.display("Chiffre attendu !");
+		  }
+		}
 		interaction.display("Saisir ville client");
 		this.ville = interaction.read();
+		
 		interaction.display("Saisir telephone client");
-		this.telephone = interaction.read();
+		this.telephone = 0;
+		while (this.telephone <= 0) {
+		try {
+			if (this.telephone < 0) {
+				interaction.display("Chiffre positif demandé");
+			}
+			this.telephone = Long.parseLong(interaction.read());
+		  } catch (NumberFormatException e) {
+			  interaction.display("Chiffre attendu !");
+		  }
+		}
 		this.compteCourant = new CompteCourant();
 		this.compteEpargne = new CompteEpargne();
 		interaction.display("Quelle carte bleu attribue au client ?");
@@ -45,19 +66,19 @@ public class Client {
 			this.carteBancaire = new CarteVisaPremier();
 		}
 		System.out.println("");
-		interaction.display("Saisie validee ! Donnees du nouveau client :");
-		System.out.println("\t" + "Nom : " + this.nom);
-		System.out.println("\t" + "Prenom : " + this.prenom);
-		System.out.println("\t" + "Adresse : " + this.adresse);
-		System.out.println("\t" + "Code Postal : " + this.codePostal);
-		System.out.println("\t" + "Ville : " + this.ville);
+		interaction.display("Saisie validee ! Donnees du nouveau client :\n");
+		System.out.println("\t" + "Nom : " + this.nom + "\n");
+		System.out.println("\t" + "Prenom : " + this.prenom + "\n");
+		System.out.println("\t" + "Adresse : " + this.adresse + "\n");
+		System.out.println("\t" + "Code Postal : " + this.codePostal + "\n");
+		System.out.println("\t" + "Ville : " + this.ville + "\n");
 		System.out.println("\t" + "Telephone : " + this.telephone + "\n");
 		System.out.println("\t" + "Compte courant : " + this.compteCourant + "\n");
 		System.out.println("\t" + "Compte épargne : " + this.compteEpargne + "\n");
 		System.out.println("\t" + "Carte Visa : " + this.carteBancaire + "\n");
 	}
 	
-	public Client(String nom, String prenom, String adresse, String codePostal, String ville, String telephone,
+	public Client(String nom, String prenom, String adresse, int codePostal, String ville, long telephone,
 			CompteCourant compteCourant, CompteEpargne compteEpargne, CarteBancaire carteBancaire) {
 		this.nom = nom;
 		this.prenom = prenom;
