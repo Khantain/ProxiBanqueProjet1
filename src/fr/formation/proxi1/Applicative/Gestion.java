@@ -45,9 +45,13 @@ public class Gestion {
 		}
 	}
 
-	public String lireInfosClient(Client client) {
+	public void lireInfosClient() {
+		for (int i = 0; i < this.entreprise.agences.get(0).conseillers.get(2).clients.size(); i++) {
+			interaction.display(
+					"Client " + (i + 1) + " : " + this.entreprise.agences.get(0).conseillers.get(2).clients.get(i));
+		
+		}
 
-		return client.toString();
 	}
 
 	public void suppressionClient(Client client) {
@@ -79,7 +83,15 @@ public class Gestion {
 				entreprise.agences.get(0).conseillers.get(2).clients.add(client);
 				break;
 			case "2":
-				interaction.Menugererclient();
+				String choixSousMenu = interaction.Menugererclient();
+				switch(choixSousMenu) {
+				case "1":
+				case "2":
+				case "3":
+				case "4":
+				case "5":
+				case "6":
+				}
 				break;
 			case "3":
 				this.running = false;
