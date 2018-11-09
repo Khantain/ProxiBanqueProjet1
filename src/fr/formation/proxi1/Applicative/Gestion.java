@@ -12,12 +12,16 @@ import fr.formation.proxi1.metier.Conseiller;
 import fr.formation.proxi1.metier.Gerant;
 
 public class Gestion {
+	
+	ProxiBanqueSI entreprise;
+	
+	private boolean running;
 
-	public void creerClient(Conseiller conseiller) {
-		Interaction interaction = new Interaction();
+	public Client creerClient() {
 		Client client = new Client();
-		conseiller.clients.add(client);
-		interaction.mainMenu(conseiller);
+		System.out.println(client);
+		System.out.println("Nombre de clients avant ajout : " + this.entreprise.agences.get(0).conseillers.get(2).clients.size());
+		return client;
 	}
 
 	public void modifierClient(Conseiller conseiller, Client client) {
@@ -26,7 +30,7 @@ public class Gestion {
 		if (conseiller.clients.size() == 0) {
 			interaction.display("Vous n'avez aucun client enregistre. Souhaitez-vous en ajouter un (oui/non) ?");
 			if (interaction.read().startsWith("o")) {
-				gestion.creerClient(conseiller);
+				gestion.creerClient();
 			}
 
 		} else
@@ -40,7 +44,7 @@ public class Gestion {
 
 	public String lireInfosClient(Client client) {
 
-		return "";
+		return client.toString();
 	}
 
 	public void suppressionClient(Client client) {
@@ -55,39 +59,25 @@ public class Gestion {
 
 	}
 	
-	// zone de test 
 	public void start() {
+		
 		this.creerJeudeTest();
+		this.running = true;
 		Conseiller conseiller = new Conseiller();
+		this.entreprise.agences.get(0).conseillers.add(conseiller);
+		System.out.println("Nombre de conseillers : " + this.entreprise.agences.get(0).conseillers.size());
 		Interaction interaction = new Interaction();
-		interaction.mainMenu(conseiller);
+		interaction.mainMenu();
 //	scanner.close();
 	}
 
 	public void creerJeudeTest() {
 
-		ProxiBanqueSI proxiTest = new ProxiBanqueSI("test");
-		System.out.println(proxiTest.agences);
+		this.entreprise = new ProxiBanqueSI();
+
 	}
 
 	
-	
-	
-	
-	
-	public Map<Integer, Client> creerDicoClients(Conseiller conseiller) {
 
-		Map<Integer, Client> inventaire = new HashMap<>();
-
-		Integer[] suite = new Integer[conseiller.clients.size()];
-		for (int i = 0; i <= conseiller.clients.size(); i++) {
-			suite[i] = i+1;
-		}
-
-		for (int i = 0; i < conseiller.clients.size(); i++) {
-			inventaire.put(suite[i], conseiller.clients.get(i));
-		}
-		return inventaire;
-	}
 
 }

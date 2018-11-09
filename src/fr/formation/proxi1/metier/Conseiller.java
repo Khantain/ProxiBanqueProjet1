@@ -13,7 +13,7 @@ public class Conseiller {
 
 	public Conseiller(String id) {
 		
-		if(id.equals("JeSuisConseillerTest1")) {
+		
 			this.id = id;
 			this.clients = new ArrayList<>();
 			Client client1 = new Client("Carre", "Triangle", "12 rue des Abysses","32000", "Bordeaux", "0145781934",
@@ -23,20 +23,7 @@ public class Conseiller {
 			this.clients.add(client1);
 			this.clients.add(client2);
 			
-		
-		}
-		
-		else if(id.equals("JeSuisConseillerTest2")) {
-			this.id = id;
-			this.clients = new ArrayList<>();
-			Client client3 = new Client("Joli", "Jose", "58 rue des Roses","55140", "Bordeaux", "0145781934",
-					new CompteCourant("123", 3000, LocalDate.now()), new CompteEpargne("4551", 32145, LocalDate.now()), new CarteVisa("12354867","active"));
-			Client client4 = new Client("Ferc", "Bureau", "41 rue des Abysses","45128", "Plouc", "0145457812",
-					new CompteCourant("123", 3000, LocalDate.now()), new CompteEpargne("4551", 32145, LocalDate.now()), new CarteVisa("12354867","active"));
-			this.clients.add(client3);
-			this.clients.add(client4);
-		
-		}
+	
 	}
 	
 	public Conseiller(){

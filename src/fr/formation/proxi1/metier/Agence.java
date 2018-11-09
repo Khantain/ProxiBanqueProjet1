@@ -11,8 +11,8 @@ public class Agence {
 	public List<Conseiller> conseillers;
 	public LocalDate dateOuverture;
 
-	public Agence(String string) {
-		this.id = "agenceTest";
+	public Agence(String id) {
+		this.id = id;
 		this.gerant = new Gerant("JeSuisUnGerantTest");
 		this.conseillers = new ArrayList<>();
 		Conseiller conseiller1 = new Conseiller("JeSuisConseillerTest1");
