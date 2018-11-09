@@ -18,11 +18,20 @@ public class Interaction {
 		return input;
 	}	
 	
+<<<<<<< HEAD
 	public void mainMenu(Conseiller conseiller) {
+=======
+	public void mainMenu() {
+<<<<<<< HEAD
+		this.display("----------ProxiBanqueSI----------" + "\n");		
+=======
+		Conseiller conseiller = new Conseiller();
+>>>>>>> 280a744b64f81b0b33fa6e022d3c77c92d71758c
 		this.display("");
+>>>>>>> 57bc2e0c407c1b88f3911684e81bd8fe06fbe025
 		this.display("----------Menu principal----------");
-		this.display("\t" + "1 - Crï¿½er un client");
-		this.display("\t" + "2 - Gï¿½rer client");
+		this.display("\t" + "1 - Créer un client");
+		this.display("\t" + "2 - Gérer client");
 		this.display("\t" + "3 - Quitter le programme");		
 		String userInput = this.read();
 		if (userInput.equals("1")) {
@@ -36,8 +45,13 @@ public class Interaction {
 			System.exit(0);
 		}
 		else {
+<<<<<<< HEAD
 			this.display("Saisie erronï¿½e, 1, 2 ou 3 attendu.");
 			this.mainMenu(conseiller);
+=======
+			this.display("Saisie erronée, 1, 2 ou 3 attendu.");
+			this.mainMenu();
+>>>>>>> 280a744b64f81b0b33fa6e022d3c77c92d71758c
 		}
 	}
 	
@@ -45,11 +59,12 @@ public class Interaction {
 		this.display("");
 		this.display("----------Menu de gestion de client----------");
 		this.display("\t" + "1 - Lister information client");
-		this.display("\t" + "2 - Supprimer un client");
-		this.display("\t" + "3 - Faire virement");
-		this.display("\t" + "4 - Faire simulation");
-		this.display("\t" + "5 - Retour menu principal");
-		this.display("\t" + "6 - Quitter le programme");
+		this.display("\t" + "2 - Lister information client");		
+		this.display("\t" + "3 - Supprimer un client");
+		this.display("\t" + "4 - Faire virement");
+		this.display("\t" + "5 - Faire simulation");
+		this.display("\t" + "6 - Retour menu principal");
+		this.display("\t" + "7 - Quitter le programme");
 		String userInput = this.read();
 		if (userInput.equals("1")) {
 			Gestion gestion = new Gestion();
@@ -57,24 +72,28 @@ public class Interaction {
 		}
 		else if (userInput.equals("2")) {
 			Gestion gestion = new Gestion();
-//			gestion.suppressionClient(client);
+//			gestion.modifierClient(client);
 		}
 		else if (userInput.equals("3")) {
-			Gestion gestion = new Gestion();
-//			gestion.faireVirement(clientCrediteur, clientDebiteur);
+				Gestion gestion = new Gestion();
+//				gestion.suppressionClient(client);
 		}
 		else if (userInput.equals("4")) {
 			Gestion gestion = new Gestion();
-//			gestion.faireSimulation(client);
+//			gestion.faireVirement(clientCrediteur, clientDebiteur);
 		}
 		else if (userInput.equals("5")) {
-			this.mainMenu();
+			Gestion gestion = new Gestion();
+//			gestion.faireSimulation(client);
 		}
 		else if (userInput.equals("6")) {
+			this.mainMenu();
+		}
+		else if (userInput.equals("7")) {
 			System.exit(0);
 		}
 		else {
-			this.display("Saisie erronï¿½e, 1, 2, 3, 4, 5 ou 6 attendu.");
+			this.display("Saisie erronée, 1, 2, 3, 4, 5 ou 6 attendu.");
 			this.Menugererclient();
 		}
 	}	

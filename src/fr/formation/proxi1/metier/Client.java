@@ -19,7 +19,7 @@ public class Client {
 	public Client() {
 		Interaction interaction = new Interaction();
 		System.out.println("");
-		interaction.display("----------Crï¿½ation d'un nouveau client----------");
+		interaction.display("----------Création d'un nouveau client----------");
 		interaction.display("Saisir nom client");
 		this.nom = interaction.read();
 		interaction.display("Saisir prenom client");
@@ -36,7 +36,7 @@ public class Client {
 		this.compteEpargne = new CompteEpargne();
 		this.carteBancaire = new CarteBancaire();
 		System.out.println("");
-		interaction.display("Saisie validï¿½e ! Donnï¿½s du nouveau client :");
+		interaction.display("Saisie validée ! Donnés du nouveau client :");
 		System.out.println("\t" + "Nom : " + this.nom);
 		System.out.println("\t" + "Prenom : " + this.prenom);
 		System.out.println("\t" + "Adresse : " + this.adresse);

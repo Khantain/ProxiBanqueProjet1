@@ -22,7 +22,7 @@ public class Gestion {
 		Interaction interaction = new Interaction();
 		Gestion gestion = new Gestion();
 		if (conseiller.clients.size() == 0) {
-			interaction.display("Vous n'avez aucun client enregistrÃ©. Souhaitez-vous en ajouter un (oui/non) ?");
+			interaction.display("Vous n'avez aucun client enregistré. Souhaitez-vous en ajouter un (oui/non) ?");
 			if (interaction.read().startsWith("o")) {
 				gestion.creerClient();
 			}
