@@ -27,11 +27,11 @@ public class Client {
 		interaction.display("Saisir adresse client");
 		this.adresse = interaction.read();
 		interaction.display("Saisir code postal client");
-		this.codePostal = 0;
-		while (this.codePostal <= 0) {
+		this.codePostal = -1;
+		while (this.codePostal <= -1) {
 		try {
 			if (this.codePostal < 0) {
-				interaction.display("Chiffre positif demand�");
+				interaction.display("Code postal positif obligatoire !");
 			}
 			this.codePostal = Integer.parseInt(interaction.read());
 		  } catch (NumberFormatException e) {
@@ -42,11 +42,11 @@ public class Client {
 		this.ville = interaction.read();
 		
 		interaction.display("Saisir telephone client");
-		this.telephone = 0;
-		while (this.telephone <= 0) {
+		this.telephone = -1;
+		while (this.telephone <= -1) {
 		try {
 			if (this.telephone < 0) {
-				interaction.display("Chiffre positif demand�");
+				interaction.display("Numero positif obligatoire !");
 			}
 			this.telephone = Long.parseLong(interaction.read());
 		  } catch (NumberFormatException e) {
@@ -65,7 +65,6 @@ public class Client {
 		else if (userInput.equals("2")) {
 			this.carteBancaire = new CarteVisaPremier();
 		}
-		
 	}
 	
 	public Client(String nom, String prenom, String adresse, int codePostal, String ville, long telephone,
