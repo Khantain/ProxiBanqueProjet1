@@ -18,6 +18,7 @@ public class Interaction {
 	}	
 	
 	public void mainMenu() {
+		Conseiller conseiller = new Conseiller();
 		this.display("");
 		this.display("----------Menu principal----------");
 		this.display("\t" + "1 - Cr�er un client");

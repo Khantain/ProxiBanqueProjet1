@@ -13,9 +13,9 @@ import fr.formation.proxi1.metier.Gerant;
 
 public class Gestion {
 
-	public Client creerClient() {
-		Client client = null;
-		return client;
+	public void creerClient(Conseiller conseiller) {
+		Client client = new Client();
+		conseiller.clients.add(client);
 	}
 
 	public void modifierClient(Conseiller conseiller, Client client) {
@@ -64,6 +64,7 @@ public class Gestion {
 	public void creerJeudeTest() {
 
 		ProxiBanqueSI proxiTest = new ProxiBanqueSI("test");
+		System.out.println(proxiTest.agences);
 	}
 
 	
