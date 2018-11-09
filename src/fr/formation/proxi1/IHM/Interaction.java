@@ -17,22 +17,9 @@ public class Interaction {
 //		scanner.close();	
 		return input;
 	}	
-	
-<<<<<<< HEAD
-	public void mainMenu() {
-		Conseiller conseiller = new Conseiller();
-		this.display("----------ProxiBanqueSI----------" + "\n");		
-		this.display("");
-=======
-
+			
 	public void mainMenu(Conseiller conseiller) {
-
 		this.display("----------ProxiBanqueSI----------" + "\n");		
-
-
-		this.display("");
-
->>>>>>> 5557b3e96200c04ad657296e55f371c925070cc4
 		this.display("----------Menu principal----------");
 		this.display("\t" + "1 - Creer un client");
 		this.display("\t" + "2 - Gerer client");

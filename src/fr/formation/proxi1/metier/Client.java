@@ -19,7 +19,7 @@ public class Client {
 	public Client() {
 		Interaction interaction = new Interaction();
 		System.out.println("");
-		interaction.display("----------Crï¿½ation d'un nouveau client----------");
+		interaction.display("----------Creation d'un nouveau client----------");
 		interaction.display("Saisir nom client");
 		this.nom = interaction.read();
 		interaction.display("Saisir prenom client");
@@ -36,22 +36,18 @@ public class Client {
 		this.compteEpargne = new CompteEpargne();
 		this.carteBancaire = new CarteBancaire();
 		System.out.println("");
-		interaction.display("Saisie validï¿½e ! Donnï¿½s du nouveau client :");
+		interaction.display("Saisie validee ! Donnees du nouveau client :");
 		System.out.println("\t" + "Nom : " + this.nom);
 		System.out.println("\t" + "Prenom : " + this.prenom);
 		System.out.println("\t" + "Adresse : " + this.adresse);
 		System.out.println("\t" + "Code Postal : " + this.codePostal);
 		System.out.println("\t" + "Ville : " + this.ville);
-<<<<<<< HEAD
 		System.out.println("\t" + "Telephone : " + this.telephone + "\n");
 		System.out.println("\t" + "Nombre compte courant : " + this.telephone + "\n");
 		System.out.println("\t" + "Nombre compte épargne : " + this.telephone + "\n");
 		System.out.println("\t" + "Nombre carte Visa electron : " + this.telephone + "\n");
 		System.out.println("\t" + "Nombre carte Visa premier : " + this.telephone + "\n");
-		interaction.mainMenu();
-=======
 		System.out.println("\t" + "telephone : " + this.telephone + "\n");
->>>>>>> 5557b3e96200c04ad657296e55f371c925070cc4
 	}
 
 	public Client(String nom, String prenom, String adresse, String codePostal, String ville, String telephone,

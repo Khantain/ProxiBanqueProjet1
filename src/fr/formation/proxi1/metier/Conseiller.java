@@ -44,7 +44,7 @@ public class Conseiller {
 		interaction.display("Bonjour. veuillez saisir votre nom : ");
 		this.id = interaction.read();
 		this.clients = new ArrayList<>();
-		interaction.display("Bonjour " + this.id+ ". Vous n'avez pour l'instant aucun client enregistré. ");
+		interaction.display("Bonjour " + this.id+ ". Vous n'avez pour l'instant aucun client enregistre. \n");
 	
 	}
 
