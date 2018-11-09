@@ -1,5 +1,8 @@
 package fr.formation.proxi1.metier;
 
+import fr.formation.proxi1.Data.Constantes;
+import fr.formation.proxi1.IHM.Interaction;
+
 /**
  * 
  * @author Adminl
@@ -20,6 +23,11 @@ public class CreditConso extends Credit {
 	
 	public CreditConso() {
 		super();
+		this.montantDu = this.montantInital + this.montantInital*(Constantes.TAUX_RENDEMENT_CREDIT_CONSO / 100);
+		Interaction interaction = new Interaction();
+		interaction.display("Montant que le client devra rembourser : " + this.montantDu);
+		this.mensualite = this.montantDu / (this.duree * 12);
+		interaction.display("Versement par le client chaque mois : " + this.mensualite);
 	}
 
 	/**

@@ -1,5 +1,8 @@
 package fr.formation.proxi1.metier;
 
+import fr.formation.proxi1.Data.Constantes;
+import fr.formation.proxi1.IHM.Interaction;
+
 /**
  * 
  * @author Adminl
@@ -22,6 +25,13 @@ public class CreditImmo extends Credit {
 	
 	public CreditImmo() {
 		super();
+		Interaction interaction = new Interaction();
+		interaction.display("Type de bien envisage :");
+		this.type = interaction.read();
+		this.montantDu = this.montantInital + this.montantInital*(Constantes.TAUX_RENDEMENT_CREDIT_IMMO / 100);
+		interaction.display("Montant que le client devra rembourser : " + this.montantDu);
+		this.mensualite = this.montantDu / (this.duree * 12);
+		interaction.display("Versement par le client chaque mois : " + this.mensualite + " euros pendant " + (this.duree*12) + " mois.");
 	}
 
 	/**

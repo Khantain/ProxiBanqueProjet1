@@ -1,16 +1,33 @@
 package fr.formation.proxi1.metier;
 
+import fr.formation.proxi1.IHM.Interaction;
+
 /**
  * 
  * @author Adminl
  *
- *A REMPLIR
- *La classe "Credit" ne possède pas de méthode elle n'est là que dans le cas ou l'utilisateur veux faire des simulations de crédit.
+ *         A REMPLIR La classe "Credit" ne possï¿½de pas de mï¿½thode elle n'est lï¿½
+ *         que dans le cas ou l'utilisateur veux faire des simulations de
+ *         crï¿½dit.
  *
  */
 
 public class Credit {
+	
 	public int duree;
-	public int pourcentage;
+	public double montantInital;
+	public double montantDu;
 	public double mensualite;
+	
+	public Credit() {
+		Interaction interaction = new Interaction();
+		interaction.display("Creation d'un nouveau credit");
+		interaction.display("Montant prete au client");
+		this.montantInital = Double.parseDouble(interaction.read());
+		interaction.display("Duree du pret en annees");
+		this.duree = Integer.parseInt(interaction.read());
+
+	}
+	
+	
 }

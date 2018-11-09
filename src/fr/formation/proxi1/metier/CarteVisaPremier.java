@@ -46,7 +46,7 @@ public class CarteVisaPremier extends CarteBancaire {
 	
 	@Override
 	public String toString() {
-		return (super.toString() + ". Carte de type premier");
+		return (super.toString() + " Carte de type premier.");
 	}
 
 }

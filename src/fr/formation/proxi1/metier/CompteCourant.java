@@ -70,10 +70,6 @@ public class CompteCourant extends CompteBancaire {
 		return ("Compte courant Numero " + this.id + " et au solde de " + this.solde + " euros.");
 	}
 
-	@Override
-	public boolean solvable() {
-		return this.solde > Constantes.limiteDecouvert;
-	}
 	
 	
 }

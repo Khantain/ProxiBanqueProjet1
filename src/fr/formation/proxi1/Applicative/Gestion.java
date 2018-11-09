@@ -9,6 +9,9 @@ import fr.formation.proxi1.metier.CompteBancaire;
 import fr.formation.proxi1.metier.CompteCourant;
 import fr.formation.proxi1.metier.CompteEpargne;
 import fr.formation.proxi1.metier.Conseiller;
+import fr.formation.proxi1.metier.Credit;
+import fr.formation.proxi1.metier.CreditConso;
+import fr.formation.proxi1.metier.CreditImmo;
 
 public class Gestion {
 
@@ -25,15 +28,15 @@ public class Gestion {
 	}
 
 	public void afficherClient(Client client) {
-		System.out.println("\t" + "Nom : " + client.nom);
-		System.out.println("\t" + "Prenom : " + client.prenom);
-		System.out.println("\t" + "Adresse : " + client.adresse);
-		System.out.println("\t" + "Code Postal : " + client.codePostal);
-		System.out.println("\t" + "Ville : " + client.ville);
-		System.out.println("\t" + "Telephone : " + client.telephone);
-		System.out.println("\t" + "Compte courant : " + client.compteCourant);
-		System.out.println("\t" + "Compte epargne : " + client.compteEpargne);
-		System.out.println("\t" + "Carte Visa : " + client.carteBancaire + "\n");
+		interaction.display("\t" + "Nom : " + client.nom);
+		interaction.display("\t" + "Prenom : " + client.prenom);
+		interaction.display("\t" + "Adresse : " + client.adresse);
+		interaction.display("\t" + "Code Postal : " + client.codePostal);
+		interaction.display("\t" + "Ville : " + client.ville);
+		interaction.display("\t" + "Telephone : " + client.telephone);
+		interaction.display("\t" + "Compte courant : " + client.compteCourant);
+		interaction.display("\t" + "Compte epargne : " + client.compteEpargne);
+		interaction.display("\t" + "Carte Visa : " + client.carteBancaire + "\n");
 	}
 
 	public void modifierClient(Client client) {
@@ -77,16 +80,14 @@ public class Gestion {
 			client.compteCourant = new CompteCourant();
 			break;
 		case 8:
-			interaction.display("Compte epargne actuel du client :\t " + client.compteCourant.toString());
+			interaction.display("Compte epargne actuel du client :\t " + client.compteEpargne.toString());
 			interaction.display("Creation d'un nouveau compte epargne");
 			client.compteEpargne = new CompteEpargne();
 			break;
 		case 9:
-			interaction.display("Carte actuelle du client :\t " + client.compteCourant.toString());
-			interaction.display("Creation d'une nouvelle carte bancaire et descativation de l'ancienne");
+			interaction.display("Carte actuelle du client :\t " + client.carteBancaire.toString());
+			interaction.display("Creation d'une nouvelle carte bancaire et suppression de l'ancienne");
 			client.carteBancaire = new CarteBancaire();
-			break;
-		case 0:
 			break;
 
 		}
@@ -116,7 +117,7 @@ public class Gestion {
 				+ " client(s) dans votre liste.");
 		int index3 = this.listerClients();
 		Client clientSupprime = this.entreprise.agences.get(0).conseillers.get(2).clientsSuivis.get(index3);
-		clientSupprime.carteBancaire.status ="desactive";
+		clientSupprime.carteBancaire.status = "desactive";
 		this.entreprise.agences.get(0).conseillers.get(2).clientsArchives.add(clientSupprime);
 		this.entreprise.agences.get(0).conseillers.get(2).clientsSuivis.remove(index3);
 		interaction.display("Client supprime de la liste.\n");
@@ -134,7 +135,7 @@ public class Gestion {
 		if (rep.equals("c")) {
 			interaction.display("Solde actuel du compte selectionne :" + clientDebite.compteCourant.solde);
 			double soldeTest = clientDebite.compteCourant.solde - montant;
-			if (soldeTest < Constantes.limiteDecouvert) {
+			if (soldeTest < Constantes.LIMITE_DECOUVERT) {
 				interaction.display(
 						"Erreur ! Le compte debite depassera le decouvert autorise ! Annulation de l'operation, retour au menu principal.");
 				return;
@@ -162,6 +163,22 @@ public class Gestion {
 	}
 
 	public void faireSimulation(Client client) {
+		
+		interaction.display("Souhaitez vous simuler un credit conso (taper c) ou un credit immobilier (taper i) ? ");
+		String rep = interaction.read().toLowerCase().substring(0, 1);
+		Credit credit = null;
+		if (rep.equals("c")) {
+			credit = new CreditConso();
+		} else if (rep.equals("e")) {
+			credit = new CreditImmo();
+		}
+		
+		double ratio = credit.montantDu / (client.compteCourant.solde + client.compteEpargne.solde);
+		
+		interaction.display("Montant a rembourser par le client : " + credit.montantDu + ". Solde total du client : " +  (client.compteCourant.solde + client.compteEpargne.solde));
+		if (ratio >= 1) {
+			interaction.display("Attention, le montant à rembourser par le client est egal ou superieur a son solde total.\n");
+		}
 
 	}
 
@@ -186,7 +203,6 @@ public class Gestion {
 				String choixSousMenu = interaction.Menugererclient();
 
 				switch (choixSousMenu) {
-			
 
 				// Affichage du resume d'un client.
 				case "1":
@@ -233,6 +249,13 @@ public class Gestion {
 					break;
 
 				case "5":
+					int index5 = this.listerClients();
+					if (index5 == -1) {
+						interaction.display("Simulation impossible. Veuillez d'abord enregistrer un client.");
+						return;
+					}
+					Client clientSimu = this.entreprise.agences.get(0).conseillers.get(2).clientsSuivis.get(index5);
+					this.faireSimulation(clientSimu);
 					break;
 
 				case "6":
