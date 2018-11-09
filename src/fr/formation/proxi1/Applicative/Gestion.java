@@ -94,16 +94,12 @@ public class Gestion {
 	}
 
 	public int listerClients() {
-<<<<<<< HEAD
-		this.interaction.display("******* Liste de vos clients. Saisissez le chiffre correspondant au client d'interet **********");
-=======
 		if (this.entreprise.agences.get(0).conseillers.get(2).clientsSuivis.size() == 0) {
 			interaction.display("Aucun client à afficher. Veuillez d'abord ajouter un client.");
 			return -1;
 		}
 		this.interaction.display(
 				"******* Liste de vos clients. Saisissez le chiffre correspondant au client d'interet **********");
->>>>>>> f030b071ad299f16aaa4bb93999d8d53f2c61d1f
 		int indexClient;
 		for (int i = 0; i < this.entreprise.agences.get(0).conseillers.get(2).clientsSuivis.size(); i++) {
 			if (!this.entreprise.agences.get(0).conseillers.get(2).clientsSuivis.get(i).archive)
