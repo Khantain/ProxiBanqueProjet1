@@ -18,20 +18,17 @@ public class Interaction {
 		return input;
 	}	
 	
-<<<<<<< HEAD
+
 	public void mainMenu(Conseiller conseiller) {
-=======
-	public void mainMenu() {
-<<<<<<< HEAD
+
 		this.display("----------ProxiBanqueSI----------" + "\n");		
-=======
-		Conseiller conseiller = new Conseiller();
->>>>>>> 280a744b64f81b0b33fa6e022d3c77c92d71758c
+
+
 		this.display("");
->>>>>>> 57bc2e0c407c1b88f3911684e81bd8fe06fbe025
+
 		this.display("----------Menu principal----------");
-		this.display("\t" + "1 - Créer un client");
-		this.display("\t" + "2 - Gérer client");
+		this.display("\t" + "1 - Creer un client");
+		this.display("\t" + "2 - Gerer client");
 		this.display("\t" + "3 - Quitter le programme");		
 		String userInput = this.read();
 		if (userInput.equals("1")) {
@@ -39,23 +36,18 @@ public class Interaction {
 			gestion.creerClient(conseiller);		
 		}
 		else if (userInput.equals("2")) {
-			this.Menugererclient();
+			this.Menugererclient(conseiller);
 		}
 		else if (userInput.equals("3")) {
 			System.exit(0);
 		}
 		else {
-<<<<<<< HEAD
-			this.display("Saisie erronï¿½e, 1, 2 ou 3 attendu.");
+			this.display("Saisie erronee, 1, 2 ou 3 attendu.");
 			this.mainMenu(conseiller);
-=======
-			this.display("Saisie erronée, 1, 2 ou 3 attendu.");
-			this.mainMenu();
->>>>>>> 280a744b64f81b0b33fa6e022d3c77c92d71758c
 		}
 	}
 	
-	public void Menugererclient() {
+	public void Menugererclient(Conseiller conseiller) {
 		this.display("");
 		this.display("----------Menu de gestion de client----------");
 		this.display("\t" + "1 - Lister information client");
@@ -87,14 +79,14 @@ public class Interaction {
 //			gestion.faireSimulation(client);
 		}
 		else if (userInput.equals("6")) {
-			this.mainMenu();
+			this.mainMenu(conseiller);
 		}
 		else if (userInput.equals("7")) {
 			System.exit(0);
 		}
 		else {
-			this.display("Saisie erronée, 1, 2, 3, 4, 5 ou 6 attendu.");
-			this.Menugererclient();
+			this.display("Saisie erronee, 1, 2, 3, 4, 5 ou 6 attendu.");
+			this.Menugererclient(conseiller);
 		}
 	}	
 }
