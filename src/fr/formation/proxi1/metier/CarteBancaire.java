@@ -16,5 +16,6 @@ public class CarteBancaire {
 	public CarteBancaire() {
 		this.id = "";
 		this.status = "";
+		
 	}
 }

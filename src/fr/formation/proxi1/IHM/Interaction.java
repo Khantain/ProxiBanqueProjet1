@@ -3,6 +3,7 @@ package fr.formation.proxi1.IHM;
 import java.util.Scanner;
 
 import fr.formation.proxi1.Applicative.Gestion;
+import fr.formation.proxi1.metier.Conseiller;
 
 public class Interaction {
 		
@@ -12,18 +13,15 @@ public class Interaction {
 	
 	public String read() {
 		Scanner scanner = new Scanner(System.in);
-		String input = scanner.next();	
+		String input = scanner.nextLine();	
 //		scanner.close();	
 		return input;
 	}	
 	
 	public void mainMenu() {
-<<<<<<< HEAD
-		this.display("----------ProxiBanqueSI----------" + "\n");		
-=======
 		Conseiller conseiller = new Conseiller();
+		this.display("----------ProxiBanqueSI----------" + "\n");		
 		this.display("");
->>>>>>> 57bc2e0c407c1b88f3911684e81bd8fe06fbe025
 		this.display("----------Menu principal----------");
 		this.display("\t" + "1 - Créer un client");
 		this.display("\t" + "2 - Gérer client");
@@ -49,7 +47,7 @@ public class Interaction {
 		this.display("");
 		this.display("----------Menu de gestion de client----------");
 		this.display("\t" + "1 - Lister information client");
-		this.display("\t" + "2 - Lister information client");		
+		this.display("\t" + "2 - Modifier information client");		
 		this.display("\t" + "3 - Supprimer un client");
 		this.display("\t" + "4 - Faire virement");
 		this.display("\t" + "5 - Faire simulation");

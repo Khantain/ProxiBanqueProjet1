@@ -42,7 +42,11 @@ public class Client {
 		System.out.println("\t" + "Adresse : " + this.adresse);
 		System.out.println("\t" + "Code Postal : " + this.codePostal);
 		System.out.println("\t" + "Ville : " + this.ville);
-		System.out.println("\t" + "telephone : " + this.telephone + "\n");
+		System.out.println("\t" + "Telephone : " + this.telephone + "\n");
+		System.out.println("\t" + "Nombre compte courant : " + this.telephone + "\n");
+		System.out.println("\t" + "Nombre compte épargne : " + this.telephone + "\n");
+		System.out.println("\t" + "Nombre carte Visa electron : " + this.telephone + "\n");
+		System.out.println("\t" + "Nombre carte Visa premier : " + this.telephone + "\n");
 		interaction.mainMenu();
 	}
 
