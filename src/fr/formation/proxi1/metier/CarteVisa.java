@@ -10,15 +10,11 @@ public class CarteVisa extends CarteBancaire {
 
 
 	public CarteVisa() {
-		Interaction interaction = new Interaction();
-		interaction.display("Saisir numero carte Visa Electron");
-		this.id = interaction.read();
-		this.status = "active";
-	}
-
+		super();
+		}
 
 	@Override
 	public String toString() {
-		return ("Carte Visa Electron " + this.id);
+		return (super.toString() + ". Carte de type electron");
 	}
 }
