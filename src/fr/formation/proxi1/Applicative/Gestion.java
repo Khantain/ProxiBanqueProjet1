@@ -12,12 +12,19 @@ import fr.formation.proxi1.metier.Credit;
 import fr.formation.proxi1.metier.CreditConso;
 import fr.formation.proxi1.metier.CreditImmo;
 
+/**Classe contenant tous les traitements effectues sur les clients du conseiller nouvellement arrive.
+ * @author Adminl
+ *
+ */
 public class Gestion {
 //attributs de la classe
 	private ProxiBanqueSI entreprise;
 	private boolean running;
 	Interaction interaction = new Interaction();
 
+	/** Cree un client dont toutes les informations sont saisies par l'utilisateur.
+	 * @return Le Client cree.
+	 */
 	public Client creerClient() {
 		Client client = new Client();
 		System.out.println("");
@@ -26,6 +33,9 @@ public class Gestion {
 		return client;
 	}
 
+	/**Affiche le resume d'un client enregistre dans la liste.
+	 * @param client Le client a afficher.
+	 */
 	public void afficherClient(Client client) {
 		interaction.display("\t" + "Nom : " + client.nom);
 		interaction.display("\t" + "Prenom : " + client.prenom);
@@ -36,8 +46,12 @@ public class Gestion {
 		interaction.display("\t" + "Compte courant : " + client.compteCourant);
 		interaction.display("\t" + "Compte epargne : " + client.compteEpargne);
 		interaction.display("\t" + "Carte Visa : " + client.carteBancaire + "\n");
+		interaction.display("\t" + "Credit en cours ? : " + (client.avecCredit ? "Oui" : "Non") + "\n");
 	}
 
+	/** Permet de modifier un attribut particulier d'un client a partir d'un menu.
+	 * @param client Le client dont une des donnees est a modifier.
+	 */
 	public void modifierClient(Client client) {
 		String[] attributsClient = { "Nom", "Prenom", "Adresse", "Code postal", "Ville", "Telephone", "Compte Courant",
 				"Compte Epargne", "Carte Visa" };
@@ -93,6 +107,9 @@ public class Gestion {
 
 	}
 
+	/** Affiche l'ensemble des clients parmi la liste.
+	 * @return Un entier indiquant l'index du client choisi parmi la liste.
+	 */
 	public int listerClients() {
 		if (this.entreprise.agences.get(0).conseillers.get(2).clientsSuivis.size() == 0) {
 			interaction.display("Aucun client à afficher. Veuillez d'abord ajouter un client.");
