@@ -32,7 +32,9 @@ public class Interaction {
 		return reponse;
 	}
 
-	public void Menugererclient() {
+	public String Menugererclient() {
+		String reponse = "";
+		do {
 		this.display("");
 		this.display("----------Menu de gestion de client----------");
 		this.display("\t" + "1 - Lister information client");
@@ -42,29 +44,9 @@ public class Interaction {
 		this.display("\t" + "5 - Faire simulation");
 		this.display("\t" + "6 - Retour menu principal");
 		this.display("\t" + "7 - Quitter le programme");
-		String userInput = this.read();
-		if (userInput.equals("1")) {
-			Gestion gestion = new Gestion();
-//			gestion.lireInfosClient(client)
-		} else if (userInput.equals("2")) {
-			Gestion gestion = new Gestion();
-//			gestion.modifierClient(client);
-		} else if (userInput.equals("3")) {
-			Gestion gestion = new Gestion();
-//				gestion.suppressionClient(client);
-		} else if (userInput.equals("4")) {
-			Gestion gestion = new Gestion();
-//			gestion.faireVirement(clientCrediteur, clientDebiteur);
-		} else if (userInput.equals("5")) {
-			Gestion gestion = new Gestion();
-//			gestion.faireSimulation(client);
-		} else if (userInput.equals("6")) {
-			this.mainMenu();
-		} else if (userInput.equals("7")) {
-			System.exit(0);
-		} else {
-			this.display("Saisie erronee, 1, 2, 3, 4, 5 ou 6 attendu.");
-			this.Menugererclient();
-		}
+		
+		} while (!reponse.equals("1") && !reponse.equals("2") && !reponse.equals("3") && !reponse.equals("4") && !reponse.equals("5") && !reponse.equals("6") && !reponse.equals("7"));
+		
+		return reponse;
 	}
 }
