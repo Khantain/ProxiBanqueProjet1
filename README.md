@@ -60,7 +60,8 @@ Cette option ouvre le deuxième menu de l'application permettant de faire les ac
 		
 		5 - Faire simulation
 		
-		En cours de codage.
+		Permet de tester une simulation de credit en mettant un montant et une duree de base, l'application renvoie le montant que doit rembourser le crediteur, ainsi que la mensualité.
+		Une reponse sur la possibilité du près est donnée en fonction du montant du proprietaire.
 		
 		6 - Retour menu principal
 		
