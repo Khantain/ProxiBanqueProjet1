@@ -20,15 +20,15 @@ public class Gestion {
 	public Client creerClient() {
 		Client client = new Client();
 		System.out.println("");
-		interaction.display("Saisie validee ! Donnees du nouveau client :\n");
-		System.out.println("\t" + "Nom : " + client.nom + "\n");
-		System.out.println("\t" + "Prenom : " + client.prenom + "\n");
-		System.out.println("\t" + "Adresse : " + client.adresse + "\n");
-		System.out.println("\t" + "Code Postal : " + client.codePostal + "\n");
-		System.out.println("\t" + "Ville : " + client.ville + "\n");
-		System.out.println("\t" + "Telephone : " + client.telephone + "\n");
-		System.out.println("\t" + "Compte courant : " + client.compteCourant + "\n");
-		System.out.println("\t" + "Compte �pargne : " + client.compteEpargne + "\n");
+		interaction.display("Saisie validee ! Donnees du nouveau client :");
+		System.out.println("\t" + "Nom : " + client.nom);
+		System.out.println("\t" + "Prenom : " + client.prenom);
+		System.out.println("\t" + "Adresse : " + client.adresse);
+		System.out.println("\t" + "Code Postal : " + client.codePostal);
+		System.out.println("\t" + "Ville : " + client.ville);
+		System.out.println("\t" + "Telephone : " + client.telephone);
+		System.out.println("\t" + "Compte courant : " + client.compteCourant);
+		System.out.println("\t" + "Compte epargne : " + client.compteEpargne );
 		System.out.println("\t" + "Carte Visa : " + client.carteBancaire + "\n");
 		return client;
 	}

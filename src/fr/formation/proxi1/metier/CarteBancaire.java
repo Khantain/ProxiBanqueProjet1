@@ -25,7 +25,7 @@ public class CarteBancaire {
 
 	@Override
 	public String toString() {
-		return ("Carte numero " + this.id + " . Statut : " + this.status);
+		return ("Carte numero : " + this.id + ". Statut : " + this.status + ".");
 	}	
 
 }
