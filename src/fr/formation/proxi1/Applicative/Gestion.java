@@ -12,7 +12,10 @@ import fr.formation.proxi1.metier.Credit;
 import fr.formation.proxi1.metier.CreditConso;
 import fr.formation.proxi1.metier.CreditImmo;
 
-/**Classe contenant tous les traitements effectues sur les clients du conseiller nouvellement arrive.
+/**
+ * Classe contenant tous les traitements effectues sur les clients du conseiller
+ * nouvellement arrive.
+ * 
  * @author Adminl
  *
  */
@@ -22,7 +25,9 @@ public class Gestion {
 	private boolean running;
 	Interaction interaction = new Interaction();
 
-	/** Cree un client dont toutes les informations sont saisies par l'utilisateur.
+	/**
+	 * Cree un client dont toutes les informations sont saisies par l'utilisateur.
+	 * 
 	 * @return Le Client cree.
 	 */
 	public Client creerClient() {
@@ -33,7 +38,9 @@ public class Gestion {
 		return client;
 	}
 
-	/**Affiche le resume d'un client enregistre dans la liste.
+	/**
+	 * Affiche le resume d'un client enregistre dans la liste.
+	 * 
 	 * @param client Le client a afficher.
 	 */
 	public void afficherClient(Client client) {
@@ -49,7 +56,9 @@ public class Gestion {
 		interaction.display("\t" + "Credit en cours ? : " + (client.avecCredit ? "Oui" : "Non") + "\n");
 	}
 
-	/** Permet de modifier un attribut particulier d'un client a partir d'un menu.
+	/**
+	 * Permet de modifier un attribut particulier d'un client a partir d'un menu.
+	 * 
 	 * @param client Le client dont une des donnees est a modifier.
 	 */
 	public void modifierClient(Client client) {
@@ -107,12 +116,14 @@ public class Gestion {
 
 	}
 
-	/** Affiche l'ensemble des clients parmi la liste.
+	/**
+	 * Affiche l'ensemble des clients parmi la liste.
+	 * 
 	 * @return Un entier indiquant l'index du client choisi parmi la liste.
 	 */
 	public int listerClients() {
 		if (this.entreprise.agences.get(0).conseillers.get(2).clientsSuivis.size() == 0) {
-			interaction.display("Aucun client à afficher. Veuillez d'abord ajouter un client.");
+			interaction.display("Aucun client a afficher. Veuillez d'abord ajouter un client.\n");
 			return -1;
 		}
 		this.interaction.display(
@@ -127,6 +138,10 @@ public class Gestion {
 		return indexClient;
 	}
 
+	/**
+	 * Permet de supprimer un client appartenant au conseiller ayant enregistre son
+	 * nom au debut de l'application et desactive sa carte bancaire.
+	 */
 	public void suppressionClient() {
 
 		interaction.display("Il y a " + this.entreprise.agences.get(0).conseillers.get(2).clientsSuivis.size()
@@ -137,17 +152,29 @@ public class Gestion {
 		this.entreprise.agences.get(0).conseillers.get(2).clientsArchives.add(clientSupprime);
 		this.entreprise.agences.get(0).conseillers.get(2).clientsSuivis.remove(index3);
 		interaction.display("Client supprime de la liste.\n");
-
 	}
 
+	/**
+	 * 
+	 * 	                    Permet de virer de l'argent d'un client debite a un
+	 *                      client credite.
+	 * 
+	 * @param clientCredite Correspond au client qui va etre credite.
+	 * @param clientDebite  Correspond au client qui va etre debite.
+	 * 
+	 */
 	public void faireVirement(Client clientCredite, Client clientDebite) {
 		interaction.display("Indiquez le montant du virement :");
 		double montant = Double.parseDouble(interaction.read());
-
-		interaction.display(
-				"Pour le client a DEBITER, taper 'C' pour prendre depuis le compte courant et 'E' pour le compte epargne :");
-		String rep = interaction.read().toLowerCase().substring(0, 1);
-
+		String rep = "z";
+		do {
+			if (!rep.equals("z")) {
+				interaction.display("Erreur. C ou E attendu.");
+			}
+			interaction.display(
+					"Pour le client a DEBITER, taper 'C' pour prendre depuis le compte courant et 'E' pour le compte epargne :");
+			rep = interaction.read().toLowerCase();
+		} while (!(rep.equals("c") || rep.equals("e")) || rep.length() > 1);
 		if (rep.equals("c")) {
 			interaction.display("Solde actuel du compte selectionne :" + clientDebite.compteCourant.solde);
 			double soldeTest = clientDebite.compteCourant.solde - montant;
@@ -166,47 +193,68 @@ public class Gestion {
 			}
 			clientDebite.compteEpargne.solde -= montant;
 		}
-
-		interaction.display(
-				"Pour le client a CREDITER, taper 'C' pour prendre depuis le compte courant et 'E' pour le compte epargne :");
-		String rep2 = interaction.read().toLowerCase().substring(0, 1);
+		String rep2 = "z";
+		do {
+			if (!rep.equals("z")) {
+				interaction.display("Erreur. C ou E attendu.");
+			}
+			interaction.display(
+					"Pour le client a CREDITER, taper 'C' pour prendre depuis le compte courant et 'E' pour le compte epargne :");
+			rep2 = interaction.read().toLowerCase();
+		} while (!(rep2.equals("c") || rep2.equals("e")) || rep.length() > 1);
 		if (rep2.equals("c")) {
 			clientCredite.compteCourant.solde += montant;
 		} else {
 			clientCredite.compteEpargne.solde += montant;
 		}
-
 	}
 
+	/**
+	 * 
+	 *               Permet de faire une simulation : on choisit un montant, une
+	 *               duree, et l'application retourne le montant a rembourser a la
+	 *               banque ainsi que les mensualit�s pendant la periode du pres.
+	 * 
+	 * @param client Le client pour lequel la simulation de credit sera effectue.
+	 * 
+	 */
 	public void faireSimulation(Client client) {
-
-		interaction.display("Souhaitez vous simuler un credit conso (taper c) ou un credit immobilier (taper i) ? ");
-		String rep = interaction.read().toLowerCase().substring(0, 1);
+		String rep = "z";
+		do {
+			if (!rep.equals("z")) {
+				interaction.display("Erreur. C ou I attendu.");
+			}
+			interaction
+					.display("Souhaitez vous simuler un credit conso (taper c) ou un credit immobilier (taper i) ? ");
+			rep = interaction.read().toLowerCase();
+		} while (!(rep.equals("c") || rep.equals("i")) || rep.length() > 1);
 		Credit credit = null;
 		if (rep.equals("c")) {
 			credit = new CreditConso();
 		} else if (rep.equals("e")) {
 			credit = new CreditImmo();
 		}
-
 		double ratio = credit.montantDu / (client.compteCourant.solde + client.compteEpargne.solde);
-
 		interaction.display("Montant a rembourser par le client : " + credit.montantDu + ". Solde total du client : "
 				+ (client.compteCourant.solde + client.compteEpargne.solde));
 		if (ratio >= 1) {
 			interaction.display(
-					"Attention, le montant à rembourser par le client est egal ou superieur a son solde total.\n");
+					"Attention, le montant a rembourser par le client est egal ou superieur a son solde total.\n");
 		}
-		
 		interaction.display("Souhaitez-vous accorder un credit a ce client (Oui/Non) ?");
-		String choix = interaction.read().toLowerCase().substring(0,1);
+		String choix = interaction.read().toLowerCase().substring(0, 1);
 		if (choix.equals("o")) {
 			client.avecCredit = true;
 			interaction.display("Le client est maintenant enregistre comme ayant un credit.");
 		}
-
 	}
 
+	/**
+	 * 
+	 * Permet d'initialiser l'application en declenchant les methodes de creation de
+	 * conseiller et d'affichage du menu principal
+	 * 
+	 */
 	public void start() {
 
 		this.entreprise = this.creerJeudeTest();
@@ -242,6 +290,10 @@ public class Gestion {
 				// Modification d'un attribut du client selectionne.
 				case "2":
 					int index2 = this.listerClients();
+					if (index2 == -1) {
+						interaction.display("Modification impossible.\n");
+						break;
+					}
 					Client clientAModifier = this.entreprise.agences.get(0).conseillers.get(2).clientsSuivis
 							.get(index2);
 					this.modifierClient(clientAModifier);
@@ -251,7 +303,8 @@ public class Gestion {
 				// la liste.
 				case "3":
 					if (this.entreprise.agences.get(0).conseillers.get(2).clientsSuivis.size() == 0) {
-						interaction.display("Erreur. Votre liste ne contient aucun client. Retour au menu principal.");
+						interaction
+								.display("Erreur. Votre liste ne contient aucun client. Retour au menu principal.\n");
 						break;
 					}
 					this.suppressionClient();
@@ -262,6 +315,9 @@ public class Gestion {
 				case "4":
 					interaction.display("Indiquez le client a debiter : \n");
 					int indexClientDebite = this.listerClients();
+					if (indexClientDebite == -1) {
+						break;
+					}
 					Client clientDebite = this.entreprise.agences.get(0).conseillers.get(2).clientsSuivis
 							.get(indexClientDebite);
 
@@ -276,8 +332,8 @@ public class Gestion {
 				case "5":
 					int index5 = this.listerClients();
 					if (index5 == -1) {
-						interaction.display("Simulation impossible. Veuillez d'abord enregistrer un client.");
-						return;
+						interaction.display("Simulation impossible.\n");
+						break;
 					}
 					Client clientSimu = this.entreprise.agences.get(0).conseillers.get(2).clientsSuivis.get(index5);
 					this.faireSimulation(clientSimu);
@@ -285,7 +341,7 @@ public class Gestion {
 
 				case "6":
 					break;
-					
+
 				case "7":
 					interaction.display("Fin du programme. Au revoir.");
 					System.exit(0);
@@ -303,10 +359,17 @@ public class Gestion {
 //	scanner.close();
 	}
 
+	/**
+	 *
+	 * Permet d'initialiser une agence pour tester l'application.
+	 * 
+	 * @return Corresponds a l'entreprise ProxiBanque, qui contient l'agence (id :
+	 *         32AB4)
+	 *
+	 */
 	public ProxiBanqueSI creerJeudeTest() {
 		ProxiBanqueSI entreprise;
 		entreprise = new ProxiBanqueSI();
 		return entreprise;
 	}
-
 }
