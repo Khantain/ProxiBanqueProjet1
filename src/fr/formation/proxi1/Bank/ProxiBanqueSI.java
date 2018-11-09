@@ -5,6 +5,8 @@ import java.util.List;
 import fr.formation.proxi1.metier.Agence;
 
 /**
+ * Classe representant l'entreprise. Elle est composee d'un reseau d'agences.
+ * 
  * @author Adminl
  *
  */

@@ -62,6 +62,7 @@ public class Gestion {
 	 * @param client Le client dont une des donnees est a modifier.
 	 */
 	public void modifierClient(Client client) {
+		// Affiche un menu de selection de l'attribut du client a modifier.
 		String[] attributsClient = { "Nom", "Prenom", "Adresse", "Code postal", "Ville", "Telephone", "Compte Courant",
 				"Compte Epargne", "Carte Visa" };
 		interaction.display("Quelle information souhaitez vous modifier ? Saisissez le chiffre correspondant \n");
@@ -122,6 +123,7 @@ public class Gestion {
 	 * @return Un entier indiquant l'index du client choisi parmi la liste.
 	 */
 	public int listerClients() {
+		// retourne -1 si la liste de clients est vide.
 		if (this.entreprise.agences.get(0).conseillers.get(2).clientsSuivis.size() == 0) {
 			interaction.display("Aucun client a afficher. Veuillez d'abord ajouter un client.\n");
 			return -1;
@@ -156,8 +158,8 @@ public class Gestion {
 
 	/**
 	 * 
-	 * 	                    Permet de virer de l'argent d'un client debite a un
-	 *                      client credite.
+	 * Permet de virer de l'argent d'un client debite a un client credite. Le
+	 * virement peut se faire entre les deux comptes du meme client.
 	 * 
 	 * @param clientCredite Correspond au client qui va etre credite.
 	 * @param clientDebite  Correspond au client qui va etre debite.
@@ -211,14 +213,16 @@ public class Gestion {
 
 	/**
 	 * 
-	 *               Permet de faire une simulation : on choisit un montant, une
-	 *               duree, et l'application retourne le montant a rembourser a la
-	 *               banque ainsi que les mensualit�s pendant la periode du pres.
+	 * Permet de faire une simulation : on choisit un montant, une duree, et
+	 * l'application retourne le montant a rembourser a la banque ainsi que les
+	 * mensualit�s pendant la periode du pres.
 	 * 
 	 * @param client Le client pour lequel la simulation de credit sera effectue.
 	 * 
 	 */
 	public void faireSimulation(Client client) {
+		// Controle que l'utilisateur ne puisse rentrer que "c" ou "i" pour le choix du
+		// type de compte.
 		String rep = "z";
 		do {
 			if (!rep.equals("z")) {
@@ -228,12 +232,15 @@ public class Gestion {
 					.display("Souhaitez vous simuler un credit conso (taper c) ou un credit immobilier (taper i) ? ");
 			rep = interaction.read().toLowerCase();
 		} while (!(rep.equals("c") || rep.equals("i")) || rep.length() > 1);
+
 		Credit credit = null;
 		if (rep.equals("c")) {
 			credit = new CreditConso();
 		} else if (rep.equals("e")) {
 			credit = new CreditImmo();
 		}
+		// Affiche un avertissement si le montant a rembourser est superieur au solde
+		// total du client.
 		double ratio = credit.montantDu / (client.compteCourant.solde + client.compteEpargne.solde);
 		interaction.display("Montant a rembourser par le client : " + credit.montantDu + ". Solde total du client : "
 				+ (client.compteCourant.solde + client.compteEpargne.solde));
@@ -241,6 +248,7 @@ public class Gestion {
 			interaction.display(
 					"Attention, le montant a rembourser par le client est egal ou superieur a son solde total.\n");
 		}
+		// Choix d'accorder un pret ou non et si oui, modifie l'attribut du client.
 		interaction.display("Souhaitez-vous accorder un credit a ce client (Oui/Non) ?");
 		String choix = interaction.read().toLowerCase().substring(0, 1);
 		if (choix.equals("o")) {
@@ -251,18 +259,20 @@ public class Gestion {
 
 	/**
 	 * 
-	 * Permet d'initialiser l'application en declenchant les methodes de creation de
-	 * conseiller et d'affichage du menu principal
+	 * Permet d'initialiser l'application en creant un nouveau conseiller
+	 * (l'utilisateur) et en affichant le menu principal.
 	 * 
 	 */
 	public void start() {
-
+		// Charge les données par défaut.
 		this.entreprise = this.creerJeudeTest();
 		this.running = true;
+		// Ajoute l'utilisateur comme nouveau conseiller de l'agence par défaut.
 		Conseiller conseiller = new Conseiller();
 		this.entreprise.agences.get(0).conseillers.add(conseiller);
 		String choix = "";
 
+		// Seul le choix 3 fait sortir de la boucle.
 		while (this.running) {
 			choix = interaction.mainMenu();
 
@@ -273,7 +283,7 @@ public class Gestion {
 				break;
 
 			case "2":
-				String choixSousMenu = interaction.Menugererclient();
+				String choixSousMenu = interaction.menuGererClient();
 
 				switch (choixSousMenu) {
 
@@ -328,7 +338,9 @@ public class Gestion {
 
 					this.faireVirement(clientCredite, clientDebite);
 					break;
-
+				// permet de simuler un credit pour un client donne. Affiche un message
+				// d'avertissement si le montant a rembourser est superieur au solde actuel du
+				// client
 				case "5":
 					int index5 = this.listerClients();
 					if (index5 == -1) {
@@ -338,17 +350,17 @@ public class Gestion {
 					Client clientSimu = this.entreprise.agences.get(0).conseillers.get(2).clientsSuivis.get(index5);
 					this.faireSimulation(clientSimu);
 					break;
-
+				// Retour au menu principal
 				case "6":
 					break;
-
+				// Sort directement de l'application.
 				case "7":
 					interaction.display("Fin du programme. Au revoir.");
 					System.exit(0);
 					break;
 				}
 				break;
-
+			// Met fin a l'execution de l'application.
 			case "3":
 				this.running = false;
 				interaction.display("Fin du programme. Au revoir.");
@@ -356,7 +368,6 @@ public class Gestion {
 			}
 		}
 
-//	scanner.close();
 	}
 
 	/**
