@@ -17,8 +17,11 @@ public class CompteEpargne extends CompteBancaire {
 		this.id = interaction.read();
 		interaction.display("Saisir solde initial du compte epargne");
 		this.solde = -1;
-		while (this.solde == -1) {
+		while (this.solde <= -1) {
 		try {
+			if (this.solde < 0) {
+				interaction.display("Chiffre positif demande");
+			}
 			this.solde = Double.parseDouble(interaction.read());
 		  } catch (NumberFormatException e) {
 		    System.out.println("Chiffre attendu !");
