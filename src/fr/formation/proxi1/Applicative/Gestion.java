@@ -97,10 +97,10 @@ public class Gestion {
 		this.interaction.display(
 				"******* Liste de vos clients. Saisissez le chiffre correspondant au client d'interet **********");
 		int indexClient;
-		for (int i = 0; i < this.entreprise.agences.get(0).conseillers.get(2).clients.size(); i++) {
-			if (!this.entreprise.agences.get(0).conseillers.get(2).clients.get(i).archive)
+		for (int i = 0; i < this.entreprise.agences.get(0).conseillers.get(2).clientsSuivis.size(); i++) {
+			if (!this.entreprise.agences.get(0).conseillers.get(2).clientsSuivis.get(i).archive)
 			interaction.display(
-					"\t" + (i + 1) + "    -    " + this.entreprise.agences.get(0).conseillers.get(2).clients.get(i));
+					"\t" + (i + 1) + "    -    " + this.entreprise.agences.get(0).conseillers.get(2).clientsSuivis.get(i));
 		}
 		indexClient = Integer.parseInt(interaction.read()) - 1;
 
@@ -155,7 +155,7 @@ public class Gestion {
 			switch (choix) {
 			case "1":
 				Client clientCree = this.creerClient();
-				this.entreprise.agences.get(0).conseillers.get(2).clients.add(clientCree);
+				this.entreprise.agences.get(0).conseillers.get(2).clientsSuivis.add(clientCree);
 				break;
 
 			case "2":
@@ -166,20 +166,20 @@ public class Gestion {
 			//Affichage du resume d'un client.
 				case "1":
 					int index = this.listerClients();
-					Client clientSouhaite = this.entreprise.agences.get(0).conseillers.get(2).clients.get(index);
+					Client clientSouhaite = this.entreprise.agences.get(0).conseillers.get(2).clientsSuivis.get(index);
 					this.afficherClient(clientSouhaite);
 					break;
 					
 			//Modification d'un attribut du client selectionne.
 				case "2":
 					int index2 = this.listerClients();
-					Client clientAModifier = this.entreprise.agences.get(0).conseillers.get(2).clients.get(index2);
+					Client clientAModifier = this.entreprise.agences.get(0).conseillers.get(2).clientsSuivis.get(index2);
 					this.modifierClient(clientAModifier);
 					break;
 					
 			//Suppression d'un client. Retour au menu principal si absence de clients dans la liste.
 				case "3":
-					if (this.entreprise.agences.get(0).conseillers.get(2).clients.size() == 0) {
+					if (this.entreprise.agences.get(0).conseillers.get(2).clientsSuivis.size() == 0) {
 						interaction.display("Erreur. Votre liste ne contient aucun client. Retour au menu principal.");
 						break;
 					}
@@ -192,7 +192,7 @@ public class Gestion {
 				case "4":
 					interaction.display("Indiquez le client a debiter : \n");
 					int indexClientDebite = this.listerClients();
-					Client clientDebite = this.entreprise.agences.get(0).conseillers.get(2).clients
+					Client clientDebite = this.entreprise.agences.get(0).conseillers.get(2).clientsSuivis
 							.get(indexClientDebite);
 
 					String[] comptes = { "Compte Courant", "Compte Epargne" };
@@ -202,7 +202,7 @@ public class Gestion {
 
 					interaction.display("Indiquez le client a crediter : \n");
 					int indexClientCredite = this.listerClients();
-					Client clientCredite = this.entreprise.agences.get(0).conseillers.get(2).clients
+					Client clientCredite = this.entreprise.agences.get(0).conseillers.get(2).clientsSuivis
 							.get(indexClientCredite);
 					
 					this.faireVirement(clientCredite, clientDebite);
