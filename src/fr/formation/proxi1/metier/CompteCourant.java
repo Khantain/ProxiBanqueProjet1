@@ -21,6 +21,6 @@ public class CompteCourant extends CompteBancaire {
 	
 	@Override
 	public String toString() {
-		return ("Compte epargne Numero " + this.id + " et au solde de " + this.solde + " euros.");
+		return ("Compte courant Numero " + this.id + " et au solde de " + this.solde + " euros.");
 	}
 }

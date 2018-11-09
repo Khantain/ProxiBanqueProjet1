@@ -9,15 +9,12 @@ public class CarteVisaPremier extends CarteBancaire {
 	}
 
 	public CarteVisaPremier() {
-		Interaction interaction = new Interaction();
-		interaction.display("Saisir numero carte Visa Premier");
-		this.id = interaction.read();
-		this.status = "active";
+		super();
 	}
 	
 	@Override
 	public String toString() {
-		return ("Carte Visa Premier " + this.id);
+		return (super.toString() + ". Carte de type premier");
 	}
 
 }
