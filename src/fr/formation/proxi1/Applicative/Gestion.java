@@ -94,8 +94,7 @@ public class Gestion {
 	}
 
 	public int listerClients() {
-		this.interaction.display(
-				"******* Liste de vos clients. Saisissez le chiffre correspondant au client d'interet **********");
+		this.interaction.display("******* Liste de vos clients. Saisissez le chiffre correspondant au client d'interet **********");
 		int indexClient;
 		for (int i = 0; i < this.entreprise.agences.get(0).conseillers.get(2).clientsSuivis.size(); i++) {
 			if (!this.entreprise.agences.get(0).conseillers.get(2).clientsSuivis.get(i).archive)
@@ -103,7 +102,6 @@ public class Gestion {
 					"\t" + (i + 1) + "    -    " + this.entreprise.agences.get(0).conseillers.get(2).clientsSuivis.get(i));
 		}
 		indexClient = Integer.parseInt(interaction.read()) - 1;
-
 		return indexClient;
 	}
 

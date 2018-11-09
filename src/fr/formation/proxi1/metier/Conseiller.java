@@ -18,7 +18,7 @@ public class Conseiller {
 
 	public String id;
 	public List<Client> clientsSuivis;
-	public List<Client> clientsArchivés;
+	public List<Client> clientsArchives;
 
 	/**
 	 * 
