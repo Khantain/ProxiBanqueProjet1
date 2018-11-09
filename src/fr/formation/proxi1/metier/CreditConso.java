@@ -1,7 +1,7 @@
 package fr.formation.proxi1.metier;
 
-import fr.formation.proxi1.Data.Constantes;
-import fr.formation.proxi1.IHM.Interaction;
+import fr.formation.proxi1.Persistence.Constantes;
+import fr.formation.proxi1.Presentation.Interaction;
 
 /**
  * La classe CreditConso represente un credit consommation potentiellement

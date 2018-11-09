@@ -1,4 +1,4 @@
-package fr.formation.proxi1.Bank;
+package fr.formation.proxi1.Persistence;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,7 @@ import fr.formation.proxi1.metier.Agence;
  * @author Adminl
  *
  */
-public class ProxiBanqueSI {
+public class ReseauAgences {
 
 	public List<Agence> agences;
 
@@ -19,7 +19,7 @@ public class ProxiBanqueSI {
 	 * 
 	 * @param La liste d'agences de l'entreprise sous forme de liste.
 	 */
-	public ProxiBanqueSI(List<Agence> agences) {
+	public ReseauAgences(List<Agence> agences) {
 		this.agences = agences;
 	}
 
@@ -28,7 +28,7 @@ public class ProxiBanqueSI {
 	 * conseillers test et deux clients test.
 	 * 
 	 */
-	public ProxiBanqueSI() {
+	public ReseauAgences() {
 		this.agences = new ArrayList<>();
 		Agence agenceTest = new Agence("32AB4");
 		this.agences.add(agenceTest);

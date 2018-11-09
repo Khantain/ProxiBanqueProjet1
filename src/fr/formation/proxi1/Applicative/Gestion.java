@@ -1,8 +1,8 @@
 package fr.formation.proxi1.Applicative;
 
-import fr.formation.proxi1.Bank.ProxiBanqueSI;
-import fr.formation.proxi1.Data.Constantes;
-import fr.formation.proxi1.IHM.Interaction;
+import fr.formation.proxi1.Persistence.ReseauAgences;
+import fr.formation.proxi1.Persistence.Constantes;
+import fr.formation.proxi1.Presentation.Interaction;
 import fr.formation.proxi1.metier.CarteBancaire;
 import fr.formation.proxi1.metier.Client;
 import fr.formation.proxi1.metier.CompteCourant;
@@ -21,7 +21,7 @@ import fr.formation.proxi1.metier.CreditImmo;
  */
 public class Gestion {
 //attributs de la classe
-	private ProxiBanqueSI entreprise;
+	private ReseauAgences entreprise;
 	private boolean running;
 	Interaction interaction = new Interaction();
 
@@ -236,7 +236,7 @@ public class Gestion {
 		Credit credit = null;
 		if (rep.equals("c")) {
 			credit = new CreditConso();
-		} else if (rep.equals("e")) {
+		} else if (rep.equals("i")) {
 			credit = new CreditImmo();
 		}
 		// Affiche un avertissement si le montant a rembourser est superieur au solde
@@ -378,9 +378,9 @@ public class Gestion {
 	 *         32AB4)
 	 *
 	 */
-	public ProxiBanqueSI creerJeudeTest() {
-		ProxiBanqueSI entreprise;
-		entreprise = new ProxiBanqueSI();
+	public ReseauAgences creerJeudeTest() {
+		ReseauAgences entreprise;
+		entreprise = new ReseauAgences();
 		return entreprise;
 	}
 }

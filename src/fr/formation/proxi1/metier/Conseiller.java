@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import fr.formation.proxi1.IHM.Interaction;
+import fr.formation.proxi1.Presentation.Interaction;
 
 /**
  * Classe representant un conseiller rattache a une agence de l'entreprise.

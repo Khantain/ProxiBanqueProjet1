@@ -1,4 +1,4 @@
-package fr.formation.proxi1.IHM;
+package fr.formation.proxi1.Presentation;
 
 import java.util.Scanner;
 

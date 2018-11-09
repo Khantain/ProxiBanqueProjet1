@@ -1,6 +1,6 @@
 package fr.formation.proxi1.metier;
 
-import fr.formation.proxi1.IHM.Interaction;
+import fr.formation.proxi1.Presentation.Interaction;
 
 /**
  * La classe Credit represente un credit à la consommation ou un credit

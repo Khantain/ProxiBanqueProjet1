@@ -1,6 +1,6 @@
 package fr.formation.proxi1.metier;
 
-import fr.formation.proxi1.IHM.Interaction;
+import fr.formation.proxi1.Presentation.Interaction;
 
 /**
  * Classe representant un client de la banque. Si le client est supprime, il est

@@ -1,4 +1,4 @@
-package fr.formation.proxi1.DebutAppli;
+package fr.formation.proxi1;
 
 import fr.formation.proxi1.Applicative.Gestion;
 

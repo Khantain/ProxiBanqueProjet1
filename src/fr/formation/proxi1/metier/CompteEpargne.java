@@ -1,7 +1,7 @@
 package fr.formation.proxi1.metier;
 
 import java.time.LocalDate;
-import fr.formation.proxi1.IHM.Interaction;
+import fr.formation.proxi1.Presentation.Interaction;
 
 /**
  * Classe avec un taux de rendement specialisant la classe CompteBancaire.

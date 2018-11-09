@@ -1,6 +1,6 @@
 package fr.formation.proxi1.metier;
 
-import fr.formation.proxi1.IHM.Interaction;
+import fr.formation.proxi1.Presentation.Interaction;
 
 /**
  * Classe representant la carte bleue d'un client. Elle peut etre de deux types:

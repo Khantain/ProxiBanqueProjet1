@@ -1,4 +1,4 @@
-package fr.formation.proxi1.Data;
+package fr.formation.proxi1.Persistence;
 
 /**
  * Classes contenant les valeurs par defaut de l'application comme la limite de
