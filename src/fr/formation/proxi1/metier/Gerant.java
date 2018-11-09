@@ -1,41 +1,27 @@
 package fr.formation.proxi1.metier;
 
 /**
+ * La classe Gerant represente le gerant d'une agence du reseau de la banque.
  * 
  * @author Adminl
  *
- *Cette classe caracterise les attributs et methode du Gerant.
- *
  */
-
 public class Gerant {
-	
-	public String id;
+
+	private String id;
 
 	/**
+	 * Constructeur de la classe Gerant
 	 * 
-	 * @author Adminl
-	 *
-	 *Constructeur d'initialisation de la classe "Gerant".
-	 *
+	 * @param id Le nom du gerant.
 	 */
-	
 	public Gerant(String id) {
 		this.id = id;
 	}
 
-	/**
-	 * 
-	 * @author Adminl
-	 *
-	 *Permet de redefinir la methode toString de la classe "Object".
-	 *
-	 */
-	
 	@Override
 	public String toString() {
-		return ("Gerant "+ this.id);
+		return ("Gerant " + this.id);
 	}
-
 
 }

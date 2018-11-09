@@ -7,13 +7,11 @@ import java.util.List;
 import fr.formation.proxi1.IHM.Interaction;
 
 /**
+ * Classe representant un conseiller rattache a une agence de l'entreprise.
  * 
  * @author Adminl
  *
- *Cette classe caracterise les attributs et methode du Conseiller.
- *
  */
-
 public class Conseiller {
 
 	public String id;
@@ -21,13 +19,11 @@ public class Conseiller {
 	public List<Client> clientsArchives;
 
 	/**
+	 * Constructeur de la classe conseiller permettant d'y ajouter deux clients
+	 * fictifs.
 	 * 
-	 * @author Adminl
-	 *
-	 *Constructeur d'initialisation de la classe "Conseiller".
-	 *
+	 * @param id Le nom du conseiller
 	 */
-	
 	public Conseiller(String id) {
 
 		this.clientsSuivis = new ArrayList<>();
@@ -43,13 +39,10 @@ public class Conseiller {
 	}
 
 	/**
+	 * Constructeur par defaut de la classe conseiller avec une liste de clients
+	 * vide.
 	 * 
-	 * @author Adminl
-	 *
-	 *Constructeur par default de la classe "Conseiller".
-	 *
 	 */
-	
 	public Conseiller() {
 		Interaction interaction = new Interaction();
 		interaction.display("Bonjour. veuillez saisir votre nom : ");
@@ -59,14 +52,6 @@ public class Conseiller {
 		interaction.display("Bonjour " + this.id + ". Vous n'avez pour l'instant aucun client enregistre. \n");
 	}
 
-	/**
-	 * 
-	 * @author Adminl
-	 *
-	 *Permet de redefinir la methode toString de la classe object.
-	 *
-	 */
-	
 	@Override
 	public String toString() {
 		return ("Conseiller " + this.id + " en charge de " + this.clientsSuivis.size() + " client(s).");

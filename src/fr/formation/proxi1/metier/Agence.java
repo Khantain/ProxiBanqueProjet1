@@ -5,14 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Classe representant une agence de l'entreprise. Elle est geree par un seul
+ * gerant mais peut posseder plusieurs conseillers. Par defaut elle contient
+ * deux conseillers + le conseiller nouvellement connecte.
  * 
  * @author Adminl
  *
- *Cette classe caracterise les attributs et methode de l'Agence.
- *
  */
-
-
 public class Agence {
 
 	public String id;
@@ -21,13 +20,10 @@ public class Agence {
 	public LocalDate dateOuverture;
 
 	/**
+	 * Constructeur.
 	 * 
-	 * @author Adminl
-	 *
-	 *Constructeur d'initialisation de la classe "Agence".
-	 *
+	 * @param id Le nom de l'agence
 	 */
-	
 	public Agence(String id) {
 		this.id = id;
 		this.gerant = new Gerant("JeSuisUnGerantTest");
@@ -39,14 +35,6 @@ public class Agence {
 		this.dateOuverture = LocalDate.now();
 	}
 
-	/**
-	 * 
-	 * @author Adminl
-	 *
-	 *Constructeur par default de la classe "CompteBancaire".
-	 *
-	 */
-	
 	@Override
 	public String toString() {
 		return ("Agence " + this.id + " geree par " + this.gerant + ". Nombre de conseiller(s) : "

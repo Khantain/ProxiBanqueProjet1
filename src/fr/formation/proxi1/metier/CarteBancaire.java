@@ -3,39 +3,32 @@ package fr.formation.proxi1.metier;
 import fr.formation.proxi1.IHM.Interaction;
 
 /**
+ * Classe representant la carte bleue d'un client. Elle peut etre de deux types:
+ * Electron ou Premier.
  * 
  * @author Adminl
  *
- *Cette classe caracterise les attributs et methode de la Carte Bancaire.
- *
  */
-
 public class CarteBancaire {
 
 	public String id;
 	public String status;
 
 	/**
+	 * Constructeur avec arguments.
 	 * 
-	 * @author Adminl
-	 *
-	 *Constructeur d'initialisation de la classe "CarteBancaire".
-	 *
+	 * @param id     Numero de la carte.
+	 * @param status Statut de la carte. Par defaut "active" lors de la creation
+	 *               d'un client.
 	 */
-	
 	public CarteBancaire(String id, String status) {
 		this.id = id;
 		this.status = status;
 	}
 
 	/**
-	 * 
-	 * @author Adminl
-	 *
-	 *Constructeur par default de la classe "CarteBancaire".
-	 *
+	 * Constructeur par defaut.
 	 */
-	
 	public CarteBancaire() {
 		Interaction interaction = new Interaction();
 		interaction.display("Saisir numero carte Visa Electron");
@@ -43,14 +36,6 @@ public class CarteBancaire {
 		this.status = "active";
 	}
 
-	/**
-	 * 
-	 * @author Adminl
-	 *
-	 *Permet de redefinir la methode toString de la classe "Object".
-	 *
-	 */
-	
 	@Override
 	public String toString() {
 		return ("Carte numero : " + this.id + ". Statut : " + this.status + ".");

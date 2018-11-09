@@ -3,22 +3,25 @@ package fr.formation.proxi1.metier;
 import fr.formation.proxi1.IHM.Interaction;
 
 /**
+ * La classe Credit represente un credit à la consommation ou un credit
+ * immobilier. Chaque credit est soumis a un taux different selon le type de
+ * credit.
  * 
  * @author Adminl
  *
- *         A REMPLIR La classe "Credit" ne poss�de pas de m�thode elle n'est l�
- *         que dans le cas ou l'utilisateur veux faire des simulations de
- *         cr�dit.
- *
  */
-
 public class Credit {
-	
+
 	public int duree;
 	public double montantInital;
 	public double montantDu;
 	public double mensualite;
-	
+
+	/**
+	 * Constructeur sans argument permettant de choisir tous les attributs de la
+	 * classe.
+	 * 
+	 */
 	public Credit() {
 		Interaction interaction = new Interaction();
 		interaction.display("Creation d'un nouveau credit");
@@ -28,6 +31,5 @@ public class Credit {
 		this.duree = Integer.parseInt(interaction.read());
 
 	}
-	
-	
+
 }

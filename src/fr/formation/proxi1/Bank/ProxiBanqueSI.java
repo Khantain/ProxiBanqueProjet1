@@ -4,38 +4,28 @@ import java.util.ArrayList;
 import java.util.List;
 import fr.formation.proxi1.metier.Agence;
 
-/***
- * 
+/**
  * @author Adminl
  *
- *Cette classe caracterise les attributs et methode de l'application ProxiBanqueSI.
- *
  */
-
 public class ProxiBanqueSI {
 
 	public List<Agence> agences;
 
-	/***
+	/**
+	 * Constructeur.
 	 * 
-	 * @author Adminl
-	 *
-	 *Constructeur d'initialisation de la classe "ProxiBanqueSI".
-	 *
+	 * @param La liste d'agences de l'entreprise sous forme de liste.
 	 */
-	
 	public ProxiBanqueSI(List<Agence> agences) {
 		this.agences = agences;
 	}
 
-	/***
+	/**
+	 * Constructeur permettant de creer une agence de test avec un gerant test, deux
+	 * conseillers test et deux clients test.
 	 * 
-	 * @author Adminl
-	 *
-	 *Constructeur par default de la classe "Gerant".
-	 *
 	 */
-	
 	public ProxiBanqueSI() {
 		this.agences = new ArrayList<>();
 		Agence agenceTest = new Agence("32AB4");
