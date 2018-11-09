@@ -18,4 +18,6 @@ public class CarteBancaire {
 		this.status = "";
 		
 	}
+	
+	
 }
