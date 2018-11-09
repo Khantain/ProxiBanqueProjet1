@@ -28,24 +28,23 @@ public class Gestion {
 		System.out.println("\t" + "Ville : " + client.ville);
 		System.out.println("\t" + "Telephone : " + client.telephone);
 		System.out.println("\t" + "Compte courant : " + client.compteCourant);
-		System.out.println("\t" + "Compte epargne : " + client.compteEpargne );
+		System.out.println("\t" + "Compte epargne : " + client.compteEpargne);
 		System.out.println("\t" + "Carte Visa : " + client.carteBancaire + "\n");
 		return client;
 	}
 
-	public void modifierClient(Conseiller conseiller, Client client) {
+	public void modifierClient() {
 		Gestion gestion = new Gestion();
-		if (conseiller.clients.size() == 0) {
+		if (this.entreprise.agences.get(0).conseillers.get(2).clients.size() == 0) {
 			interaction.display("Vous n'avez aucun client enregistre. Souhaitez-vous en ajouter un (oui/non) ?");
 			if (interaction.read().startsWith("o")) {
 				gestion.creerClient();
-			}
-
-		} else
-			interaction.display("-------- Liste de vos clients ----------");
-
-		for (Client client2 : conseiller.clients) {
-			gestion.lireInfosClient(client2);
+			} else return;
+		}
+		interaction.display("-------- Liste de vos clients ----------");
+		for (int i = 0; i < this.entreprise.agences.get(0).conseillers.get(2).clients.size(); i++) {
+			interaction.display(
+					"Client " + (i + 1) + " : " + this.entreprise.agences.get(0).conseillers.get(2).clients.get(i));
 		}
 
 	}
@@ -75,10 +74,10 @@ public class Gestion {
 		this.entreprise.agences.get(0).conseillers.add(conseiller);
 
 		String choix = "";
-		
+
 		while (this.running) {
 			choix = interaction.mainMenu();
-			
+
 			switch (choix) {
 			case "1":
 				Client client = this.creerClient();
