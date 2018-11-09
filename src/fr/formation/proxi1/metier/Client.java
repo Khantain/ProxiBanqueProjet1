@@ -57,14 +57,17 @@ public class Client {
 		this.compteEpargne = new CompteEpargne();
 		interaction.display("Quelle carte bleu attribue au client ?");
 		interaction.display("\t" + "1 - Carte visa Electron");
-		interaction.display("\t" + "2 - Carte visa premier");		
-		String userInput = interaction.read();
+		interaction.display("\t" + "2 - Carte visa premier");	
+		String userInput = "";
+		do {
+		userInput = interaction.read();
 		if (userInput.equals("1")) {
 			this.carteBancaire = new CarteVisa();
 		}
 		else if (userInput.equals("2")) {
 			this.carteBancaire = new CarteVisaPremier();
 		}
+		}while (!userInput.equals("1") && !userInput.equals("2"));
 	}
 	
 	public Client(String nom, String prenom, String adresse, int codePostal, String ville, long telephone,
@@ -82,8 +85,6 @@ public class Client {
 
 	@Override
 	public String toString() {
-		return ("Client " + this.nom + " " + this.prenom + " au solde de "
-				+ (this.compteCourant.solde + this.compteEpargne.solde) + " euros. Carte Bancaire : "
-				+ this.carteBancaire);
+		return ("Client " + this.nom + " " + this.prenom + ".");
 	}
 }
